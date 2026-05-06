@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Hero() {
   return (
@@ -25,14 +26,23 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="text-base text-ucd-navy-700 dark:text-ucd-navy-200 font-medium uppercase tracking-widest mb-8">
-          University College Dublin
-        </p>
+        <div className="flex items-center gap-3 mb-8">
+          <Image
+            src="/ucd-logo.svg"
+            alt="University College Dublin"
+            width={48}
+            height={48}
+            className="object-contain"
+          />
+          <p className="text-base text-ucd-navy-700 dark:text-ucd-navy-200 font-medium uppercase tracking-widest">
+            University College Dublin
+          </p>
+        </div>
 
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-5 leading-relaxed max-w-2xl">
-          We use machine learning and natural language processing to understand
+          We use machine learning and statistical analysis to understand
           how financial behaviour and mental health are interconnected — and to
-          build AI tools that help people thrive.
+          build tools that help people with mental health conditions, particularly bipolar, help manage their finances better.
         </p>
 
         <p className="text-gray-500 dark:text-gray-400 mb-10 leading-relaxed max-w-xl">

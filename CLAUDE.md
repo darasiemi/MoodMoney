@@ -113,6 +113,21 @@ Dark mode surfaces (use as arbitrary values where needed):
 
 ---
 
+## Static assets
+
+All static files go in `public/` and are served from the root URL:
+
+| File | URL |
+|---|---|
+| `public/ucd-logo.svg` | `/ucd-logo.svg` |
+| `public/images/people/<name>.jpg` | `/images/people/<name>.jpg` |
+
+The UCD logo (`public/ucd-logo.svg`) is rendered with `next/image` in two places: `components/layout/Navbar.tsx` and `components/home/Hero.tsx`. It does **not** use `dark:invert` — the SVG retains its original colours in both light and dark themes. Do not add `dark:invert` to the logo.
+
+When adding team member photos, place them in `public/images/people/` and reference them as `/images/people/<filename>` in `content/people.json`.
+
+---
+
 ## Types
 
 `types/index.ts` is the single source of truth. When adding a new content field:
@@ -123,6 +138,12 @@ Dark mode surfaces (use as arbitrary values where needed):
 ---
 
 ## Content reference
+
+### People (`content/people.json`)
+
+Current team: **Mark Matthews** (PI) and **Dara Adedeji** (PhD Candidate).
+
+`role` must be one of: `pi | postdoc | phd | msc | undergrad | collaborator | alumni`. Display order on the People page is controlled by `ROLE_ORDER` in `lib/data.ts`. The `joinYear` field is required; set `leaveYear` to move someone to the Alumni section without deleting their record.
 
 ### MDX frontmatter shapes
 
@@ -139,11 +160,9 @@ title, slug, date (YYYY-MM-DD), author, summary, tags[], published (true|false)
 ```
 `published: false` hides the post from all listings without deleting it.
 
-### JSON content rules
+### Publications (`content/publications.json`)
 
-**`content/publications.json`** — `id` must be unique. Set `featured: true` to surface on the homepage. Sorted by `year` descending automatically.
-
-**`content/people.json`** — `role` must be one of: `pi | postdoc | phd | msc | undergrad | collaborator | alumni`. Display order on the People page is controlled by `ROLE_ORDER` in `lib/data.ts`.
+`id` must be unique. Set `featured: true` to surface on the homepage. Sorted by `year` descending automatically.
 
 ### Updating content without touching code
 
@@ -155,6 +174,16 @@ title, slug, date (YYYY-MM-DD), author, summary, tags[], published (true|false)
 | Add blog post | Create `content/blog/<slug>.mdx` with `published: true` |
 | Feature something on homepage | Set `featured: true` in the relevant file |
 | Hide a blog post | Set `published: false` — do not delete the file |
+| Move someone to alumni | Set `leaveYear` in their `people.json` entry |
+
+### Editing the home page
+
+| Section | How to edit |
+|---|---|
+| Hero text and buttons | `components/home/Hero.tsx` |
+| Which projects appear | `featured: true/false` in `content/projects/<slug>.mdx` |
+| Which publications appear | `featured: true/false` in `content/publications.json` |
+| Blog posts shown | Two most recent with `published: true`, sorted by `date` |
 
 ---
 

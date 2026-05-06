@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -28,12 +29,13 @@ export function Navbar() {
         <div className="flex items-center justify-between h-15 py-3">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 bg-ucd-navy rounded flex items-center justify-center shrink-0 group-hover:bg-ucd-navy-800 transition-colors">
-              <svg viewBox="0 0 32 32" className="w-5 h-5 fill-ucd-gold" aria-hidden>
-                <path d="M16 3 L27 8 L27 17 C27 23.5 21.5 28 16 30 C10.5 28 5 23.5 5 17 L5 8 Z" />
-                <path d="M12 14 L16 11 L20 14 L20 20 L16 22 L12 20 Z" fill="#003087" />
-              </svg>
-            </div>
+            <Image
+              src="/ucd-logo.svg"
+              alt="University College Dublin"
+              width={40}
+              height={40}
+              className="object-contain shrink-0"
+            />
             <div className="leading-tight">
               <span className="block text-sm font-bold text-ucd-navy dark:text-white tracking-tight">
                 Mood &amp; Money Lab
