@@ -1,0 +1,64 @@
+---
+title: "Financial Stress & Psychological Wellbeing"
+slug: "financial-stress-mental-health"
+description: "Using anonymised transaction data and machine learning to understand how financial behaviour patterns predict and mediate mental health outcomes — and to design AI-driven interventions."
+status: "active"
+startYear: 2022
+tags: ["financial wellbeing", "mental health", "digital phenotyping", "machine learning", "intervention"]
+image: "/images/projects/financial-stress.jpg"
+featured: true
+collaborators: ["Open Banking partner (anonymised)", "Money and Mental Health Policy Institute"]
+funding: "ESRC Impact Acceleration Account; Nuffield Foundation"
+---
+
+## Overview
+
+Financial hardship is one of the strongest predictors of poor mental health, yet the causal mechanisms are poorly understood and rarely quantified at scale. This project analyses **anonymised, linked financial and mental health data** to answer three questions:
+
+1. Can spending and income patterns predict deteriorating mental health before clinical presentation?
+2. What financial behaviours are most strongly associated with psychological distress?
+3. Can AI-powered financial coaching nudges improve mental wellbeing?
+
+## Data
+
+Working under a research data sharing agreement with a UK retail bank, we have access to:
+
+- **2.3 million anonymised current accounts** with monthly transaction-level data (2018–2024)
+- A subset of **45,000 accounts** where holders also completed validated mental health questionnaires (PHQ-9, GAD-7, WEMWBS) at 6-month intervals
+- Linked social deprivation indices (Index of Multiple Deprivation) at LSOA level
+
+All data handling follows NHS Data Security and Protection Toolkit standards and has full NHS REC ethical approval (ref: 23/XX/000).
+
+## Machine Learning Pipeline
+
+```
+Transaction data → Feature engineering → Gradient Boosted Trees (XGBoost)
+                                         ↓
+                              Mental health score prediction (t+3 months)
+                                         ↓
+                              SHAP feature importance → Interpretable risk factors
+```
+
+**Key engineered features include:**
+- Spending volatility (coefficient of variation across categories)
+- Savings rate and trajectory
+- Overdraft frequency and depth
+- Late payment events
+- Income regularity score
+
+## Results
+
+Our best model achieves:
+- **AUROC 0.81** for predicting new-onset psychological distress at 3-month horizon
+- **Top predictors**: overdraft events (14 days+), food spend drop >20%, irregular income
+- Models are reasonably robust across age and gender, though performance drops for self-employed individuals (active area of improvement)
+
+## Intervention Design
+
+A second strand of this project designs and evaluates **AI-generated financial coaching messages** delivered within a banking app. Messages are personalised to spending patterns and framed using behavioural science principles.
+
+We are currently running a **pre-registered RCT** (n=8,000) to evaluate the effect of these nudges on both financial behaviour and self-reported mental wellbeing at 3 and 6 months.
+
+## Policy Impact
+
+Findings have been presented to the **Money and Mental Health Policy Institute** and cited in their 2024 submission to HM Treasury. We are in dialogue with the FCA's Consumer Duty team about implications for vulnerability screening frameworks.

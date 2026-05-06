@@ -1,0 +1,55 @@
+[
+  {
+    "id": "jane-smith",
+    "name": "Prof. Jane Smith",
+    "role": "pi",
+    "roleLabel": "Principal Investigator",
+    "bio": "Jane is a Professor of Computational Psychiatry and the founder of the Mood & Money Lab. Her research combines machine learning, natural language processing, and behavioural science to understand and improve mental health outcomes. She holds a DPhil from Oxford and has been recognised by MIT Technology Review as one of 35 Innovators Under 35.",
+    "image": "/images/people/jane-smith.jpg",
+    "email": "j.smith@university.ac.uk",
+    "website": "https://janesmith.ac.uk",
+    "googleScholar": "https://scholar.google.com/citations?user=EXAMPLE",
+    "linkedin": "https://linkedin.com/in/jane-smith-example",
+    "twitter": "https://twitter.com/janesmith_ai",
+    "researchInterests": ["Computational Psychiatry", "NLP for Mental Health", "Digital Phenotyping", "AI Fairness"],
+    "joinYear": 2019
+  },
+  {
+    "id": "john-doe",
+    "name": "Dr. John Doe",
+    "role": "postdoc",
+    "roleLabel": "Postdoctoral Researcher",
+    "bio": "John is a postdoctoral researcher investigating the intersection of financial behaviour and psychological wellbeing. He completed his PhD at the University of Edinburgh and brings expertise in causal inference and econometric modelling.",
+    "image": "/images/people/john-doe.jpg",
+    "email": "j.doe@university.ac.uk",
+    "googleScholar": "https://scholar.google.com/citations?user=EXAMPLE2",
+    "linkedin": "https://linkedin.com/in/john-doe-example",
+    "researchInterests": ["Financial Stress", "Causal Inference", "Mental Health Economics"],
+    "joinYear": 2022
+  },
+  {
+    "id": "alice-johnson",
+    "name": "Alice Johnson",
+    "role": "phd",
+    "roleLabel": "PhD Researcher",
+    "bio": "Alice is a third-year PhD student studying how passive smartphone sensing can be used for real-time mood monitoring. Before joining the lab she worked as a clinical psychologist, and her research is deeply informed by patient perspectives.",
+    "image": "/images/people/alice-johnson.jpg",
+    "email": "a.johnson@university.ac.uk",
+    "github": "https://github.com/alicejohnson-example",
+    "researchInterests": ["Passive Sensing", "Ecological Momentary Assessment", "mHealth"],
+    "joinYear": 2021
+  },
+  {
+    "id": "priya-nair",
+    "name": "Priya Nair",
+    "role": "phd",
+    "roleLabel": "PhD Researcher",
+    "bio": "Priya's research focuses on large language models for clinical text analysis, with a particular emphasis on low-resource languages and global mental health equity. She holds an MSc in Machine Learning from University College London.",
+    "image": "/images/people/priya-nair.jpg",
+    "email": "p.nair@university.ac.uk",
+    "github": "https://github.com/priyanair-example",
+    "linkedin": "https://linkedin.com/in/priya-nair-example",
+    "researchInterests": ["LLMs", "Clinical NLP", "Global Mental Health", "Low-resource NLP"],
+    "joinYear": 2023
+  }
+]

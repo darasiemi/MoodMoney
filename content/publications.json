@@ -1,0 +1,58 @@
+[
+  {
+    "id": "smith2024llm-depression",
+    "title": "Large Language Models for Depression Screening: A Systematic Evaluation Across Clinical Text Corpora",
+    "authors": ["Jane Smith", "Alice Johnson", "John Doe", "Wei Chen"],
+    "year": 2024,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venueShort": "NeurIPS 2024",
+    "type": "conference",
+    "abstract": "We present a systematic evaluation of large language models (LLMs) for automated depression screening using clinical interview transcripts, social media text, and electronic health records. Our findings show that fine-tuned LLMs achieve performance competitive with trained clinicians on standardised depression scales, while also surfacing important fairness considerations across demographic subgroups.",
+    "doi": "10.xxxx/neurips2024.example",
+    "arxiv": "2401.00001",
+    "pdf": "https://example.com/papers/smith2024llm.pdf",
+    "code": "https://github.com/moodmoneylab/llm-depression-screening",
+    "tags": ["LLMs", "depression screening", "NLP", "clinical AI"],
+    "featured": true
+  },
+  {
+    "id": "doe2024financial-stress-ml",
+    "title": "Predicting Psychological Distress from Financial Behaviour Patterns: A Machine Learning Approach",
+    "authors": ["John Doe", "Jane Smith", "Priya Nair"],
+    "year": 2024,
+    "venue": "npj Digital Medicine",
+    "venueShort": "npj Digit. Med. 2024",
+    "type": "journal",
+    "abstract": "Using anonymised transaction-level banking data linked to mental health survey outcomes, we train gradient-boosted classifiers to predict self-reported psychological distress up to three months in advance. Our model achieves AUROC of 0.81 and highlights spending volatility and income irregularity as leading predictors of deteriorating mental health.",
+    "doi": "10.1038/s41746-024-example",
+    "tags": ["financial wellbeing", "mental health prediction", "machine learning", "digital phenotyping"],
+    "featured": true
+  },
+  {
+    "id": "johnson2023mood-social",
+    "title": "Passive Sensing and Ecological Momentary Assessment for Mood Monitoring: A Scoping Review",
+    "authors": ["Alice Johnson", "Jane Smith"],
+    "year": 2023,
+    "venue": "Journal of Medical Internet Research",
+    "venueShort": "JMIR 2023",
+    "type": "journal",
+    "abstract": "We review 87 studies using smartphone passive sensing and ecological momentary assessment (EMA) for mood monitoring in clinical and non-clinical populations, synthesising findings on accuracy, user burden, and ethical considerations.",
+    "doi": "10.2196/example2023",
+    "tags": ["passive sensing", "EMA", "mood monitoring", "mHealth"],
+    "featured": false
+  },
+  {
+    "id": "smith2023fairness-mh",
+    "title": "Algorithmic Fairness in Mental Health AI: Challenges and Opportunities",
+    "authors": ["Jane Smith", "David Park"],
+    "year": 2023,
+    "venue": "ACM Conference on Fairness, Accountability and Transparency",
+    "venueShort": "FAccT 2023",
+    "type": "conference",
+    "abstract": "We critically examine fairness gaps in deployed mental health AI tools, demonstrating disparate performance across gender, ethnicity, and socioeconomic strata. We propose a fairness-aware evaluation protocol and release benchmark datasets to support reproducible research.",
+    "doi": "10.1145/example-facct2023",
+    "arxiv": "2302.00001",
+    "tags": ["fairness", "mental health AI", "algorithmic bias"],
+    "featured": false
+  }
+]
