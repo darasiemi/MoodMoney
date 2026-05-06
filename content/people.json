@@ -18,9 +18,11 @@
     "name": "Dara Adedeji",
     "role": "phd",
     "roleLabel": "PhD Candidate",
-    "bio": "Alice is a third-year PhD candidate investigating how passive smartphone sensing can be used for real-time mood monitoring. Before joining the lab she worked as a clinical psychologist, and her research is deeply informed by patient perspectives.",
+    "bio": "Dara is a third-year PhD candidate investigating how passive smartphone sensing can be used for real-time mood monitoring. Before joining the lab she worked as a clinical psychologist, and her research is deeply informed by patient perspectives.",
     "image": "/images/people/dara.png",
     "email": "oluwadara.adedeji@ucdconnect.ie",
     "website": "https://darasiemi.github.io/",
-    "researchInterests": ["Human-Centered AI", "Applied Machine Learning", "Participatory and Public Involved Technology"],
+    "researchInterests": ["Human-Centered AI", "Applied Machine Learning", "Participatory and Public Involved Technology"]
   }
+
+]
