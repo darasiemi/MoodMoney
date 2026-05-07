@@ -92,10 +92,17 @@ All tokens are in `app/globals.css` under `@theme`. The hierarchy is strict:
 | `ucd-green` + `ucd-green-{100,50}` | `#2F6B3A` | Primary interactive accent — section heading bars, nav active underline, card hover borders, left accent bars on hover, hover text, tags, role labels, active status, success states, "Get in Touch" CTA |
 | `ucd-blue` + `ucd-blue-{100,50}` | `#1E3A5F` | Sparse — journal publication badge only |
 
-Dark mode surfaces (use as arbitrary values where needed):
-- Page background: `#030c22`
-- Card/surface: `#071030`
-- Borders: `#0e2155`
+Dark mode surfaces — prefer CSS variables over hardcoded hex:
+
+| CSS variable | Light | Dark | Use |
+|---|---|---|---|
+| `var(--background)` | `#f4f6fb` | `#030c22` | page background |
+| `var(--surface)` | `#ffffff` | `#071030` | card / panel background |
+| `var(--foreground)` | `#0a1433` | `#e8eeff` | body text |
+| `var(--muted)` | `#5c6b8a` | `#6b80a8` | secondary / dimmed text |
+| `var(--border)` | `#dce3f0` | `#0e2155` | dividers, card borders |
+
+Use these as `style={{ color: "var(--foreground)" }}` or wrap in a Tailwind arbitrary value `text-[var(--foreground)]`. Only fall back to hardcoded hex inside `@theme` token definitions.
 
 **The rule:** gold = brand decoration. Green = any interactive or status signal. If you're about to use gold for a hover, link, tag, or button — use green instead.
 
@@ -109,7 +116,7 @@ Dark mode surfaces (use as arbitrary values where needed):
 - All components are server components by default. Add `"use client"` only when the component needs browser APIs, event handlers, or React state (e.g., `Navbar`, `ThemeToggle`, `ContactForm`).
 - Props are always typed against `types/index.ts` — never use `any` or inline object types for content shapes.
 - The `Tag` component accepts `variant="default" | "outline" | "gold"`. Default and outline use green; gold variant is reserved for explicit brand moments.
-- `PersonCard` accepts `variant="full" | "compact"`. PI role gets a gold border; all other roles use the standard navy border.
+- `PersonCard` is a `"use client"` component. It shows a large centred photo, name, role, and contact icons by default. Clicking "View profile" expands the bio and research interests via a smooth CSS `max-h` transition. PI role gets a gold border; PhD, postdoc, and MSc roles get a green border; all other roles use the standard navy border. The `variant` prop has been removed — the flashcard design is the single layout.
 
 ---
 
@@ -184,6 +191,25 @@ title, slug, date (YYYY-MM-DD), author, summary, tags[], published (true|false)
 | Which projects appear | `featured: true/false` in `content/projects/<slug>.mdx` |
 | Which publications appear | `featured: true/false` in `content/publications.json` |
 | Blog posts shown | Two most recent with `published: true`, sorted by `date` |
+
+---
+
+## Environment variables
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `LAB_EMAIL` | No (has fallback) | Recipient address for contact form submissions. Defaults to `lab@university.ac.uk` if unset. |
+| `RESEND_API_KEY` | Only if using Resend | API key for the Resend email provider. The contact route (`app/api/contact/route.ts`) has the Resend call stubbed out — uncomment it and `npm install resend` to activate. |
+
+Set these in `.env.local` (not committed). The contact form currently only `console.log`s submissions until the Resend block is uncommented.
+
+---
+
+## Layout
+
+`app/layout.tsx` wraps all pages in `<main className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">`. Pages must **not** add their own max-width wrapper or horizontal padding at the top level — the layout already constrains the content width.
+
+Fonts are Geist Sans and Geist Mono (loaded via `next/font/google`), exposed as CSS variables `--font-geist-sans` and `--font-geist-mono` on `<html>`.
 
 ---
 
