@@ -1,64 +1,39 @@
 ---
-title: "Financial Stress & Psychological Wellbeing"
-slug: "financial-stress-mental-health"
-description: "Using anonymised transaction data and machine learning to understand how financial behaviour patterns predict and mediate mental health outcomes — and to design AI-driven interventions."
+title: "FinHealth: Assessing Mood States from Financial Behaviour"
+slug: "financial-mental-health"
+description: "People with bipolar disorder may experience periods of high mood (mania) that can lead to impulsive spending and serious financial harm, including debt or bankruptcy. Current mood monitoring relies largely on self-report, which may miss early warning signs. This study explores whether patterns in bank transaction data—such as changes in spending—can help detect mood shifts earlier and support better financial management. Using anonymised transaction data and machine learning, we aim to identify links between financial behaviour and mental health outcomes, providing a foundation for future financial interventions for this vulnerable population."
 status: "active"
-startYear: 2022
+startYear: 2026
 tags: ["financial wellbeing", "mental health", "digital phenotyping", "machine learning", "intervention"]
 image: "/images/projects/financial-stress.jpg"
 featured: true
-collaborators: ["Open Banking partner (anonymised)", "Money and Mental Health Policy Institute"]
-funding: "ESRC Impact Acceleration Account; Nuffield Foundation"
+funding: ["Research Ireland","Health Rhythms Inc."]
 ---
 
 ## Overview
 
-Financial hardship is one of the strongest predictors of poor mental health, yet the causal mechanisms are poorly understood and rarely quantified at scale. This project analyses **anonymised, linked financial and mental health data** to answer three questions:
+People with bipolar disorder are disproportionately affected by financial difficulty,  with evidence suggesting they are approximately 50% more likely to file for bankruptcy, and may be particularly vulnerable in low-friction digital financial environments. This project investigates whether mood states can be inferred from spending data. If successful, it could: (1) provide objective evidence on the relationship between digital financial behaviour and mental health, (2) inform the development of protective interventions by financial institutions, and (3) support the use of spending patterns as passive indicators of mood, for better mental health management.
 
-1. Can spending and income patterns predict deteriorating mental health before clinical presentation?
-2. What financial behaviours are most strongly associated with psychological distress?
-3. Can AI-powered financial coaching nudges improve mental wellbeing?
+This mixed-methods feasibility study investigates associations between financial transaction data and mood state in individuals with bipolar disorder, addressing four research questions across two objectives:
+
+### Objective 1 — Feasibility and acceptability:
+
+- RQ1: What are the practical and technical considerations for collecting retrospective financial transaction data from individuals with bipolar disorder?
+- RQ2: What are participants' attitudes toward sharing financial data for research purposes, and what factors influence acceptability?
+
+### Objective 2 — Association with mood state:
+
+- RQ3: Are patterns in financial transaction data associated with self-reported mood state in individuals with bipolar disorder?
+- RQ4: What specific financial features are associated with mood episode onset or relapse risk?
 
 ## Data
 
-Working under a research data sharing agreement with a UK retail bank, we have access to:
-
-- **2.3 million anonymised current accounts** with monthly transaction-level data (2018–2024)
-- A subset of **45,000 accounts** where holders also completed validated mental health questionnaires (PHQ-9, GAD-7, WEMWBS) at 6-month intervals
-- Linked social deprivation indices (Index of Multiple Deprivation) at LSOA level
-
-All data handling follows NHS Data Security and Protection Toolkit standards and has full NHS REC ethical approval (ref: 23/XX/000).
-
-## Machine Learning Pipeline
-
-```
-Transaction data → Feature engineering → Gradient Boosted Trees (XGBoost)
-                                         ↓
-                              Mental health score prediction (t+3 months)
-                                         ↓
-                              SHAP feature importance → Interpretable risk factors
-```
-
-**Key engineered features include:**
-- Spending volatility (coefficient of variation across categories)
-- Savings rate and trajectory
-- Overdraft frequency and depth
-- Late payment events
-- Income regularity score
+Data will be conducted via Zoom, allowing the researcher to provide technical support with financial data sharing while building rapport. Prior to participation, validated assessments will be used to evaluate functional status and ensure suitability for the study. Additional brief measures will be administered to screen for current mood state and to explore whether individual differences, such as personality traits, influence the relationship between financial behaviour and mood.
 
 ## Results
 
-Our best model achieves:
-- **AUROC 0.81** for predicting new-onset psychological distress at 3-month horizon
-- **Top predictors**: overdraft events (14 days+), food spend drop >20%, irregular income
-- Models are reasonably robust across age and gender, though performance drops for self-employed individuals (active area of improvement)
+The results from this study will be published in a reputable journal and you can refer to this website on the latest update on the research.
 
-## Intervention Design
+## Contact Us
 
-A second strand of this project designs and evaluates **AI-generated financial coaching messages** delivered within a banking app. Messages are personalised to spending patterns and framed using behavioural science principles.
-
-We are currently running a **pre-registered RCT** (n=8,000) to evaluate the effect of these nudges on both financial behaviour and self-reported mental wellbeing at 3 and 6 months.
-
-## Policy Impact
-
-Findings have been presented to the **Money and Mental Health Policy Institute** and cited in their 2024 submission to HM Treasury. We are in dialogue with the FCA's Consumer Duty team about implications for vulnerability screening frameworks.
+If this research resonates with you, [get in touch via our contact page](/contact) or email us directly at [oluwadara.adedeji@ucdconnect.ie](mailto:oluwadara.adedeji@ucdconnect.ie).

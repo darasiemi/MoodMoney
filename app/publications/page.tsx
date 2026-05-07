@@ -27,7 +27,8 @@ export default function PublicationsPage() {
   return (
     <div className="py-12">
       <h1 className="text-4xl font-extrabold text-ucd-navy dark:text-white mb-4 tracking-tight">
-        Publications
+        Publications{" "}
+        <span className="font-normal italic text-gray-400 dark:text-gray-500">our peer-reviewed work.</span>
       </h1>
       <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl">
         Peer-reviewed journal articles, conference papers, and preprints from

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getAllProjects } from "@/lib/mdx";
-import { ProjectCard } from "@/components/research/ProjectCard";
+import { ResearchTabs } from "@/components/research/ResearchTabs";
 
 export const metadata: Metadata = {
   title: "Research",
@@ -10,13 +10,15 @@ export const metadata: Metadata = {
 
 export default function ResearchPage() {
   const projects = getAllProjects();
-  const active = projects.filter((p) => p.status === "active");
-  const completed = projects.filter((p) => p.status === "completed");
+  const active      = projects.filter((p) => p.status === "active");
+  const completed   = projects.filter((p) => p.status === "completed");
+  const underReview = projects.filter((p) => p.status === "under review");
 
   return (
     <div className="py-12">
       <h1 className="text-4xl font-extrabold text-ucd-navy dark:text-white mb-4 tracking-tight">
-        Research
+        Research{" "}
+        <span className="font-normal italic text-gray-400 dark:text-gray-500">at the mind–money intersection.</span>
       </h1>
       <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl">
         Our research combines machine learning, NLP, and behavioural science to
@@ -24,31 +26,7 @@ export default function ResearchPage() {
         financial dimensions of psychological wellbeing.
       </p>
 
-      {active.length > 0 && (
-        <section className="mb-12">
-          <h2 className="section-heading text-xl font-bold text-ucd-navy dark:text-white mb-5">
-            Active Projects
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {active.map((p) => (
-              <ProjectCard key={p.slug} project={p} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {completed.length > 0 && (
-        <section>
-          <h2 className="section-heading text-xl font-bold text-ucd-navy dark:text-white mb-5">
-            Completed Projects
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {completed.map((p) => (
-              <ProjectCard key={p.slug} project={p} />
-            ))}
-          </div>
-        </section>
-      )}
+      <ResearchTabs active={active} completed={completed} underReview={underReview} />
     </div>
   );
 }

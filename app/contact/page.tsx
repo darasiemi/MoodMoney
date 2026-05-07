@@ -11,7 +11,8 @@ export default function ContactPage() {
   return (
     <div className="py-12">
       <h1 className="text-4xl font-extrabold text-ucd-navy dark:text-white mb-4 tracking-tight">
-        Contact
+        Contact{" "}
+        <span className="font-normal italic text-gray-400 dark:text-gray-500">we&apos;d love to hear from you.</span>
       </h1>
       <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl">
         We welcome enquiries from prospective collaborators, PhD applicants,

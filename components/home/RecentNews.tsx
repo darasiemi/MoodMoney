@@ -11,7 +11,8 @@ export function RecentNews({ publications, posts }: RecentNewsProps) {
   return (
     <section className="mb-16">
       <h2 className="section-heading text-2xl font-bold text-ucd-navy dark:text-white mb-8">
-        Recent News &amp; Publications
+        Recent News{" "}
+        <span className="font-normal italic text-gray-400 dark:text-gray-500">&amp; publications.</span>
       </h2>
 
       {/* Recent blog posts */}

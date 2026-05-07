@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ExternalLink, Mail, BookOpen, Link2, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { MdEmail } from "react-icons/md";
+import { FaLinkedin, FaGithub, FaXTwitter } from "react-icons/fa6";
+import { SiGooglescholar } from "react-icons/si";
+import { TbWorld } from "react-icons/tb";
 import { Tag } from "@/components/ui/Tag";
 import type { Person } from "@/types";
 
@@ -20,35 +24,41 @@ export function PersonCard({ person }: { person: Person }) {
   const links = [
     person.email && {
       href: `mailto:${person.email}`,
-      icon: <Mail size={16} />,
+      icon: <MdEmail size={20} />,
       label: "Email",
+      color: "#2F6B3A",
     },
     person.website && {
       href: person.website,
-      icon: <ExternalLink size={16} />,
+      icon: <TbWorld size={20} />,
       label: "Website",
+      color: "#2F6B3A",
     },
     person.googleScholar && {
       href: person.googleScholar,
-      icon: <BookOpen size={16} />,
+      icon: <SiGooglescholar size={20} />,
       label: "Google Scholar",
+      color: "#4285F4",
     },
     person.linkedin && {
       href: person.linkedin,
-      icon: <Link2 size={16} />,
+      icon: <FaLinkedin size={20} />,
       label: "LinkedIn",
+      color: "#0A66C2",
     },
     person.twitter && {
       href: person.twitter,
-      icon: <ExternalLink size={16} />,
+      icon: <FaXTwitter size={20} />,
       label: "Twitter/X",
+      color: "#536471",
     },
     person.github && {
       href: person.github,
-      icon: <ExternalLink size={16} />,
+      icon: <FaGithub size={20} />,
       label: "GitHub",
+      color: "#6e7681",
     },
-  ].filter(Boolean) as { href: string; icon: React.ReactNode; label: string }[];
+  ].filter(Boolean) as { href: string; icon: React.ReactNode; label: string; color: string }[];
 
   return (
     <div
@@ -84,7 +94,7 @@ export function PersonCard({ person }: { person: Person }) {
 
         {/* Contact icons */}
         <div className="flex items-center justify-center gap-3 flex-wrap mb-5">
-          {links.map(({ href, icon, label }) => (
+          {links.map(({ href, icon, label, color }) => (
             <a
               key={label}
               href={href}
@@ -92,7 +102,8 @@ export function PersonCard({ person }: { person: Person }) {
               rel={href.startsWith("mailto") ? undefined : "noopener noreferrer"}
               aria-label={label}
               onClick={(e) => e.stopPropagation()}
-              className="text-ucd-navy-200 dark:text-[#1e3a6e] hover:text-ucd-green dark:hover:text-ucd-green-100 transition-colors p-1"
+              style={{ color }}
+              className="transition-opacity hover:opacity-70 p-1"
             >
               {icon}
             </a>

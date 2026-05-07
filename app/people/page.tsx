@@ -21,12 +21,10 @@ export default function PeoplePage() {
   return (
     <div className="py-12">
       <h1 className="text-4xl font-extrabold text-ucd-navy dark:text-white mb-4 tracking-tight">
-        People
+        People{" "}
+        <span className="font-normal italic text-gray-400 dark:text-gray-500">behind the research.</span>
       </h1>
-      <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl">
-        The Mood &amp; Money Lab is a multidisciplinary team of computer
-        scientists, psychologists, and public health researchers.
-      </p>
+      <div className="mb-10" />
 
       {sections.map(({ role, label, members }) => (
         <section key={role} className="mb-12">

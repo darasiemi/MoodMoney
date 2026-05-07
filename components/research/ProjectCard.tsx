@@ -4,9 +4,10 @@ import { ArrowRight } from "lucide-react";
 import type { Project } from "@/types";
 
 const STATUS_STYLES: Record<Project["status"], { dot: string; label: string }> = {
-  active:    { dot: "bg-ucd-green",    label: "text-ucd-green dark:text-ucd-green-100 font-semibold" },
-  completed: { dot: "bg-gray-400",     label: "text-gray-500 dark:text-gray-400" },
-  upcoming:  { dot: "bg-ucd-navy-200", label: "text-ucd-navy-700 dark:text-ucd-navy-200" },
+  active:         { dot: "bg-ucd-green",    label: "text-ucd-green dark:text-ucd-green-100 font-semibold" },
+  completed:      { dot: "bg-gray-400",     label: "text-gray-500 dark:text-gray-400" },
+  upcoming:       { dot: "bg-ucd-navy-200", label: "text-ucd-navy-700 dark:text-ucd-navy-200" },
+  "under review": { dot: "bg-ucd-gold",     label: "text-ucd-gold-dark dark:text-ucd-gold font-semibold" },
 };
 
 interface ProjectCardProps {

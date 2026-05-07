@@ -19,7 +19,7 @@ export interface ProjectFrontmatter {
   title: string;
   slug: string;
   description: string;
-  status: "active" | "completed" | "upcoming";
+  status: "active" | "completed" | "upcoming" | "under review";
   startYear: number;
   endYear?: number;
   tags: string[];

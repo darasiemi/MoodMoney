@@ -7,22 +7,18 @@ export function Hero() {
       {/* Dot-grid background pattern */}
       <div className="hero-pattern absolute inset-0 pointer-events-none" aria-hidden />
 
-      {/* Green decorative bar */}
-      <div className="absolute top-0 left-0 w-1 h-full bg-ucd-green hidden sm:block" aria-hidden />
 
       <div className="relative max-w-3xl pl-0 sm:pl-6">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ucd-green-50 dark:bg-ucd-green-100/10 text-ucd-green dark:text-ucd-green-100 text-xs font-semibold uppercase tracking-widest mb-6 border border-ucd-green-100 dark:border-ucd-green/30">
-          <span className="w-1.5 h-1.5 rounded-full bg-ucd-green" />
-          AI &amp; Digital Mental Health
-        </div>
-
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ucd-navy dark:text-white leading-[1.1] tracking-tight mb-4">
           Mood &amp;{" "}
           <span className="relative inline-block">
             Money Lab
             {/* Gold underline — UCD brand identity */}
             <span className="absolute -bottom-1 left-0 right-0 h-1.5 bg-ucd-gold rounded-full" aria-hidden />
+          </span>
+          <br />
+          <span className="text-2xl sm:text-3xl lg:text-4xl font-normal italic text-gray-400 dark:text-gray-500">
+            where finance meets mental health.
           </span>
         </h1>
 
@@ -34,7 +30,7 @@ export function Hero() {
             height={48}
             className="object-contain"
           />
-          <p className="text-base text-ucd-navy-700 dark:text-ucd-navy-200 font-medium uppercase tracking-widest">
+          <p className="text-base text-ucd-navy-700 dark:text-ucd-navy-200 font-medium uppercase tracking-widest" style={{ fontFamily: "var(--font-montserrat)" }}>
             University College Dublin
           </p>
         </div>

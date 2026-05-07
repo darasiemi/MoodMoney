@@ -40,7 +40,7 @@ export function Navbar() {
               <span className="block text-sm font-bold text-ucd-navy dark:text-white tracking-tight">
                 Mood &amp; Money Lab
               </span>
-              <span className="hidden sm:block text-[10px] text-ucd-navy-700 dark:text-ucd-navy-200 tracking-wide uppercase font-medium">
+              <span className="hidden sm:block text-[10px] text-ucd-navy-700 dark:text-ucd-navy-200 tracking-wide uppercase font-medium" style={{ fontFamily: "var(--font-montserrat)" }}>
                 University College Dublin
               </span>
             </div>
