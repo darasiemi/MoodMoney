@@ -62,10 +62,10 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-ucd-navy-200">
               <li>
                 <a
-                  href="mailto:lab@ucd.ie"
+                  href="mailto:mark.matthews@ucd.ie"
                   className="hover:text-ucd-gold transition-colors"
                 >
-                  lab@ucd.ie
+                  mark.matthews@ucd.ie
                 </a>
               </li>
               <li>

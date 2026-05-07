@@ -47,10 +47,10 @@ export default function ContactPage() {
             <div className="flex items-center gap-3">
               <Mail size={18} className="shrink-0 text-ucd-navy dark:text-ucd-gold" />
               <a
-                href="mailto:lab@ucd.ie"
+                href="mailto:mark.matthews@ucd.ie"
                 className="text-sm text-gray-600 dark:text-gray-400 hover:text-ucd-navy dark:hover:text-ucd-gold transition-colors"
               >
-                lab@ucd.ie
+                mark.matthews@ucd.ie
               </a>
             </div>
 

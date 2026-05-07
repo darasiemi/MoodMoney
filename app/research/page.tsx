@@ -21,7 +21,7 @@ export default function ResearchPage() {
         <span className="font-normal italic text-gray-400 dark:text-gray-500">at the mind–money intersection.</span>
       </h1>
       <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl">
-        Our research combines machine learning, NLP, and behavioural science to
+        Our research combines machine learning and behavioural science to
         address the mental health crisis — with a particular focus on the
         financial dimensions of psychological wellbeing.
       </p>
