@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Tailwind CSS v4** — CSS-only config, no `tailwind.config.ts`
 - **next-mdx-remote v6** — MDX rendered server-side via `next-mdx-remote/rsc`
 - **next-themes v0.4.6** — class-based dark mode (`dark` class on `<html>`)
-- **lucide-react v1** — brand icons (`Github`, `Linkedin`, `Twitter`) do not exist; use `ExternalLink`, `Link2`, `BookOpen` instead for generic UI icons
+- **lucide-react v1** — brand icons (`Github`, `Linkedin`, `Twitter`) do not exist; use `ExternalLink`, `Link2`, `BookOpen` for generic UI icons
 - **react-icons** — used for brand icons in `PersonCard`: `FaLinkedin`, `FaGithub`, `FaXTwitter` (from `react-icons/fa6`), `SiGooglescholar` (from `react-icons/si`), `MdEmail` (from `react-icons/md`), `TbWorld` (from `react-icons/tb`)
 
 ---
@@ -59,7 +59,7 @@ Every route is statically generated at build time except the contact API:
 
 | Route | Strategy | Key function |
 |---|---|---|
-| `app/research` | SSG | `ResearchTabs` client component handles Active / Completed & Under Review tabs |
+| `app/research` | SSG | `ResearchTabs` client component handles three tabs: Active, Under Review, Completed |
 | `app/research/[slug]` | SSG | `generateStaticParams` ← `getProjectSlugs()` |
 | `app/blog/[slug]` | SSG | `generateStaticParams` ← `getBlogSlugs()` |
 | `app/api/contact` | Dynamic (server) | POST handler; see file for Resend integration |
@@ -110,7 +110,7 @@ Use these as `style={{ color: "var(--foreground)" }}` or wrap in a Tailwind arbi
 
 ### Heading typography pattern
 
-All major headings use a **bold dark + italic muted** split to create visual rhythm:
+All major headings use a **bold dark + italic muted** split:
 
 ```tsx
 <h1 className="... font-extrabold text-ucd-navy dark:text-white">
@@ -119,7 +119,7 @@ All major headings use a **bold dark + italic muted** split to create visual rhy
 </h1>
 ```
 
-Applied to: all page `h1`s (Research, Blog, People, Publications, Contact), home section `h2`s (Featured Research, Recent News), and the hero `h1`. When adding new pages, follow this pattern.
+Applied to: all page `h1`s (Research, Blog, People, Publications, Contact), home section `h2`s (Featured Research, Recent News), and the hero `h1`. Follow this pattern for any new pages.
 
 ### Shared CSS classes
 
@@ -128,10 +128,11 @@ Applied to: all page `h1`s (Research, Blog, People, Publications, Contact), home
 
 ### Component conventions
 
-- All components are server components by default. Add `"use client"` only when the component needs browser APIs, event handlers, or React state (e.g., `Navbar`, `ThemeToggle`, `ContactForm`).
+- All components are server components by default. Add `"use client"` only when the component needs browser APIs, event handlers, or React state (e.g., `Navbar`, `ThemeToggle`, `ContactForm`, `PersonCard`, `ResearchTabs`).
 - Props are always typed against `types/index.ts` — never use `any` or inline object types for content shapes.
 - The `Tag` component accepts `variant="default" | "outline" | "gold"`. Default and outline use green; gold variant is reserved for explicit brand moments.
-- `PersonCard` is a `"use client"` component. It shows a large centred photo, name, role, and contact icons by default. Clicking "View profile" expands the bio and research interests via a smooth CSS `max-h` transition. PI role gets a gold border; PhD, postdoc, and MSc roles get a green border; all other roles use the standard navy border. The `variant` prop has been removed — the flashcard design is the single layout.
+- `PersonCard` is a `"use client"` flashcard component. It shows a large centred photo (`w-56 h-56`, 224px), name, role label, and brand-coloured contact icons. Clicking "View profile" expands the bio and research interest tags via a CSS `max-h` transition. PI gets a gold border; PhD/postdoc/MSc get a green border; all other roles use the navy border. Contact icons use actual brand colours via inline `style={{ color }}` from `react-icons`.
+- `ResearchTabs` is a `"use client"` component in `components/research/ResearchTabs.tsx`. It receives `active`, `underReview`, and `completed` project arrays (with `= []` defaults) and renders three tabs in order: Active → Under Review → Completed. The active tab underline uses `bg-ucd-green`.
 
 ---
 
@@ -143,8 +144,11 @@ All static files go in `public/` and are served from the root URL:
 |---|---|
 | `public/ucd-logo.svg` | `/ucd-logo.svg` |
 | `public/images/people/<name>.jpg` | `/images/people/<name>.jpg` |
+| `public/images/financial-mood.svg` | `/images/financial-mood.svg` |
 
-The UCD logo (`public/ucd-logo.svg`) is rendered with `next/image` in two places: `components/layout/Navbar.tsx` and `components/home/Hero.tsx`. It does **not** use `dark:invert` — the SVG retains its original colours in both light and dark themes. Do not add `dark:invert` to the logo.
+The UCD logo (`public/ucd-logo.svg`) is rendered with `next/image` in three places: `components/layout/Navbar.tsx`, `components/home/Hero.tsx`, and `components/layout/Footer.tsx`. It does **not** use `dark:invert` — the SVG retains its original colours in both themes. Do not add `dark:invert` to the logo.
+
+The hero image (`public/images/financial-mood.svg`) is displayed on the right side of the hero section, sized at `w-[620px] xl:w-[780px]` with a negative right margin to bleed toward the page edge. It is hidden below the `lg` breakpoint.
 
 When adding team member photos, place them in `public/images/people/` and reference them as `/images/people/<filename>` in `content/people.json`.
 
@@ -163,7 +167,7 @@ When adding team member photos, place them in `public/images/people/` and refere
 
 ### People (`content/people.json`)
 
-Current team: **Mark Matthews** (PI) and **Dara Adedeji** (PhD Candidate).
+Current team: **Mark Matthews** (PI) and **Dara Adedeji** (PhD Candidate). Contact email: `mark.matthews@ucd.ie`.
 
 `role` must be one of: `pi | postdoc | phd | msc | undergrad | collaborator | alumni`. Display order on the People page is controlled by `ROLE_ORDER` in `lib/data.ts`. The `joinYear` field is required; set `leaveYear` to move someone to the Alumni section without deleting their record.
 
@@ -171,10 +175,10 @@ Current team: **Mark Matthews** (PI) and **Dara Adedeji** (PhD Candidate).
 
 **Project** (`content/projects/<slug>.mdx`):
 ```yaml
-title, slug, description, status (active|completed|upcoming),
+title, slug, description, status (active|completed|upcoming|under review),
 startYear, endYear?, tags[], image?, featured?, collaborators[]?, funding?
 ```
-`slug` must match the filename exactly.
+`slug` must match the filename exactly. Valid `status` values: `active`, `completed`, `upcoming`, `under review`. The Research page tabs filter by these: Active tab = `active`; Under Review tab = `under review`; Completed tab = `completed`.
 
 **Blog post** (`content/blog/<slug>.mdx`):
 ```yaml
@@ -202,7 +206,8 @@ title, slug, date (YYYY-MM-DD), author, summary, tags[], published (true|false)
 
 | Section | How to edit |
 |---|---|
-| Hero text and buttons | `components/home/Hero.tsx` |
+| Hero text, image, and buttons | `components/home/Hero.tsx` |
+| Hero layout | Two-column (`lg:flex-row`): text left (`lg:max-w-[38%]`), image right with negative margin |
 | Which projects appear | `featured: true/false` in `content/projects/<slug>.mdx` |
 | Which publications appear | `featured: true/false` in `content/publications.json` |
 | Blog posts shown | Two most recent with `published: true`, sorted by `date` |
@@ -224,7 +229,7 @@ Set these in `.env.local` (not committed). The contact form currently only `cons
 
 `app/layout.tsx` wraps all pages in `<main className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">`. Pages must **not** add their own max-width wrapper or horizontal padding at the top level — the layout already constrains the content width.
 
-Font is **Georgia** (system serif), set on `body` in `app/globals.css`.
+Font is **Georgia** (system serif), set on `body` in `app/globals.css`. No font is loaded via `next/font` for the body.
 
 **Montserrat** (Google Font) is loaded via `next/font/google` in `app/layout.tsx` and exposed as `--font-montserrat`. It is applied exclusively to "University College Dublin" text instances (Navbar subtitle and Hero tagline) via `style={{ fontFamily: "var(--font-montserrat)" }}`. Do not use it for other text.
 

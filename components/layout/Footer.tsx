@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -12,20 +13,21 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 bg-white/10 rounded flex items-center justify-center">
-                <svg viewBox="0 0 32 32" className="w-4 h-4 fill-ucd-gold" aria-hidden>
-                  <path d="M16 3 L27 8 L27 17 C27 23.5 21.5 28 16 30 C10.5 28 5 23.5 5 17 L5 8 Z" />
-                  <path d="M12 14 L16 11 L20 14 L20 20 L16 22 L12 20 Z" fill="#003087" />
-                </svg>
-              </div>
+              <Image
+                src="/ucd-logo.svg"
+                alt="University College Dublin"
+                width={28}
+                height={28}
+                className="object-contain shrink-0"
+              />
               <p className="font-bold text-white">Mood &amp; Money Lab</p>
             </div>
             <p className="text-sm text-ucd-navy-200 leading-relaxed">
-              AI &amp; Digital Mental Health Research Group
-              <br />
               School of Computer Science
               <br />
               University College Dublin
+              <br />
+              Belfield, Dublin 4, Ireland
             </p>
           </div>
 
@@ -104,7 +106,7 @@ export function Footer() {
 
         <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
           <p className="text-xs text-ucd-navy-200">
-            &copy; {year} Mood &amp; Money Lab, University College Dublin
+            &copy; {year} &nbsp;Mood &amp; Money Lab, University College Dublin
           </p>
           <p className="text-xs text-ucd-navy-200/60">
             Built with Next.js &amp; Tailwind CSS
