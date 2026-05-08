@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { SearchModal } from "@/components/ui/SearchModal";
@@ -20,10 +20,22 @@ const NAV_LINKS = [
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handler(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 dark:bg-[#030c22]/95 backdrop-blur-sm border-b border-ucd-navy-100 dark:border-[#0e2155] shadow-sm">
-      {/* UCD gold brand strip — identity only */}
+      {/* UCD gold brand strip */}
       <div className="h-1 bg-ucd-gold w-full" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,66 +59,49 @@ export function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-0.5">
-            {NAV_LINKS.map(({ href, label }) => {
-              const active = pathname === href;
-              return (
-                <Link
-                  key={href}
-                  href={href}
-                  className={`relative px-3.5 py-2 text-sm font-medium transition-colors rounded-md ${
-                    active
-                      ? "text-ucd-navy dark:text-white"
-                      : "text-gray-600 hover:text-ucd-navy dark:text-gray-400 dark:hover:text-white"
-                  }`}
-                >
-                  {label}
-                  {active && (
-                    <span className="absolute bottom-0 left-3.5 right-3.5 h-0.5 bg-ucd-green rounded-full" />
-                  )}
-                </Link>
-              );
-            })}
-          </nav>
-
+          {/* Right side — search, theme, hamburger */}
           <div className="flex items-center gap-1">
             <SearchModal />
             <ThemeToggle />
-            <button
-              className="md:hidden p-2 rounded-md text-ucd-navy dark:text-gray-300 hover:bg-ucd-navy-50 dark:hover:bg-[#0e2155] transition-colors"
-              onClick={() => setOpen(!open)}
-              aria-label="Toggle menu"
-            >
-              {open ? <X size={20} /> : <Menu size={20} />}
-            </button>
+
+            {/* Hamburger — always visible */}
+            <div className="relative" ref={menuRef}>
+              <button
+                onClick={() => setOpen(!open)}
+                aria-label="Toggle menu"
+                aria-expanded={open}
+                className="p-2 rounded-md text-ucd-navy dark:text-gray-300 hover:bg-ucd-navy-50 dark:hover:bg-[#0e2155] transition-colors"
+              >
+                {open ? <X size={20} /> : <Menu size={20} />}
+              </button>
+
+              {/* Dropdown menu */}
+              {open && (
+                <div className="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-[#071030] border border-ucd-navy-100 dark:border-[#0e2155] rounded-xl shadow-lg overflow-hidden">
+                  {NAV_LINKS.map(({ href, label }) => {
+                    const active = pathname === href;
+                    return (
+                      <Link
+                        key={href}
+                        href={href}
+                        onClick={() => setOpen(false)}
+                        className={`flex items-center gap-2 px-4 py-3 text-sm border-b border-ucd-navy-50 dark:border-[#0e2155] last:border-0 transition-colors ${
+                          active
+                            ? "text-ucd-navy dark:text-white font-semibold bg-ucd-navy-50 dark:bg-[#0e2155]"
+                            : "text-gray-600 dark:text-gray-400 hover:bg-ucd-navy-50 dark:hover:bg-[#0e2155] hover:text-ucd-navy dark:hover:text-white"
+                        }`}
+                      >
+                        {active && <span className="w-1 h-4 bg-ucd-green rounded-full shrink-0" />}
+                        {label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Mobile drawer */}
-      {open && (
-        <div className="md:hidden border-t border-ucd-navy-100 dark:border-[#0e2155] bg-white dark:bg-[#071030] px-4 pb-4 pt-2">
-          {NAV_LINKS.map(({ href, label }) => {
-            const active = pathname === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setOpen(false)}
-                className={`flex items-center gap-2 py-2.5 text-sm border-b border-ucd-navy-50 dark:border-[#0e2155] last:border-0 transition-colors ${
-                  active
-                    ? "text-ucd-navy dark:text-white font-semibold"
-                    : "text-gray-600 dark:text-gray-400"
-                }`}
-              >
-                {active && <span className="w-1 h-4 bg-ucd-green rounded-full" />}
-                {label}
-              </Link>
-            );
-          })}
-        </div>
-      )}
     </header>
   );
 }

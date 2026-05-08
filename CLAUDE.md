@@ -67,7 +67,7 @@ Every route is statically generated at build time except the contact API:
 
 ### Adding a new page
 
-- Static page: create `app/<name>/page.tsx`, export `metadata`, add the route to `NAV_LINKS` in `components/layout/Navbar.tsx`.
+- Static page: create `app/<name>/page.tsx`, export `metadata`, add the route to `NAV_LINKS` in `components/layout/Navbar.tsx`. The navbar uses a hamburger dropdown on all screen sizes — there is no separate desktop nav.
 - Dynamic detail page: create `app/<name>/[slug]/page.tsx`, export `generateStaticParams()` and `generateMetadata()`.
 - No changes to any config file are needed.
 
