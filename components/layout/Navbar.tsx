@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { SearchModal } from "@/components/ui/SearchModal";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -70,6 +71,7 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-1">
+            <SearchModal />
             <ThemeToggle />
             <button
               className="md:hidden p-2 rounded-md text-ucd-navy dark:text-gray-300 hover:bg-ucd-navy-50 dark:hover:bg-[#0e2155] transition-colors"

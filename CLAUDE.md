@@ -63,6 +63,7 @@ Every route is statically generated at build time except the contact API:
 | `app/research/[slug]` | SSG | `generateStaticParams` ← `getProjectSlugs()` |
 | `app/blog/[slug]` | SSG | `generateStaticParams` ← `getBlogSlugs()` |
 | `app/api/contact` | Dynamic (server) | POST handler; see file for Resend integration |
+| `app/api/search` | Dynamic (server) | GET handler — returns all searchable content (projects, publications, blog posts, people) as `SearchItem[]` JSON |
 
 ### Adding a new page
 
@@ -132,6 +133,7 @@ Applied to: all page `h1`s (Research, Blog, People, Publications, Contact), home
 - Props are always typed against `types/index.ts` — never use `any` or inline object types for content shapes.
 - The `Tag` component accepts `variant="default" | "outline" | "gold"`. Default and outline use green; gold variant is reserved for explicit brand moments.
 - `PersonCard` is a `"use client"` flashcard component. It shows a large centred photo (`w-56 h-56`, 224px), name, role label, and brand-coloured contact icons. Clicking "View profile" expands the bio and research interest tags via a CSS `max-h` transition. PI gets a gold border; PhD/postdoc/MSc get a green border; all other roles use the navy border. Contact icons use actual brand colours via inline `style={{ color }}` from `react-icons`.
+- `SearchModal` (`components/ui/SearchModal.tsx`) is a `"use client"` component rendered in the Navbar. It opens via the search icon or `Cmd/Ctrl+K`, fetches `/api/search` once on first open, and filters results client-side. The `SearchItem` type is exported from `app/api/search/route.ts`.
 - `ResearchTabs` is a `"use client"` component in `components/research/ResearchTabs.tsx`. It receives `active`, `underReview`, and `completed` project arrays (with `= []` defaults) and renders three tabs in order: Active → Under Review → Completed. The active tab underline uses `bg-ucd-green`.
 
 ---
