@@ -67,7 +67,7 @@ All content lives in `content/` — no code changes needed for routine updates.
 Create a `.env.local` file (not committed):
 
 ```env
-LAB_EMAIL=mark.matthews@ucd.ie      # contact form recipient
+LAB_EMAIL=your_email.com      # contact form recipient
 RESEND_API_KEY=your_key_here         # only needed to activate email sending
 ```
 
