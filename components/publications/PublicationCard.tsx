@@ -21,10 +21,6 @@ export function PublicationCard({ pub }: PublicationCardProps) {
 
   return (
     <div className="relative bg-white dark:bg-[#071030] border border-ucd-navy-100 dark:border-[#0e2155] rounded-xl p-6 hover:border-ucd-green dark:hover:border-ucd-green transition-colors">
-      {/* Green top accent for featured */}
-      {pub.featured && (
-        <div className="absolute top-0 left-6 right-6 h-0.5 bg-ucd-green rounded-full" aria-hidden />
-      )}
 
       <div className="flex items-start gap-4 mb-2">
         <div className="flex-1 min-w-0">
