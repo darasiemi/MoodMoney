@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mood & Money Lab — Website
+
+The official website for the **Mood & Money Lab** at the School of Computer Science, University College Dublin. The lab uses machine learning and statistical analysis to understand how financial behaviour and mental health are interconnected, with a particular focus on bipolar disorder.
+
+**Live site:** [mood-money.vercel.app](https://mood-money.vercel.app)
+
+---
+
+## Stack
+
+- **Next.js 16.2.5** (App Router, Turbopack) + **React 19** + **TypeScript**
+- **Tailwind CSS v4** — CSS-only config in `app/globals.css`
+- **next-mdx-remote v6** — MDX content rendered server-side
+- **next-themes v0.4.6** — light/dark mode (defaults to light)
+- **Georgia** — body font (system serif); **Montserrat** — "University College Dublin" labels only
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev       # → http://localhost:3000
+npm run build     # production build + type-check
+npm run lint      # ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Content Management
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All content lives in `content/` — no code changes needed for routine updates.
 
-## Learn More
+| Task | How |
+|---|---|
+| Add a publication | `npm run content:add-publication` or edit `content/publications.json` |
+| Add a project | `npm run content:add-project` or create `content/projects/<slug>.mdx` |
+| Add a blog post | Create `content/blog/<slug>.mdx` with `published: true` |
+| Add a team member | Append to `content/people.json` |
+| Feature on homepage | Set `featured: true` in the relevant file |
+| Hide a blog post | Set `published: false` |
+| Move someone to alumni | Set `leaveYear` in their `people.json` entry |
 
-To learn more about Next.js, take a look at the following resources:
+### Project status values
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`active` · `under review` · `completed` · `upcoming`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Pages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Route | Description |
+|---|---|
+| `/` | Home — hero, featured research, recent news & publications |
+| `/research` | Projects browser with Active / Under Review / Completed tabs |
+| `/research/[slug]` | Individual project detail page |
+| `/publications` | Full publication list grouped by year |
+| `/people` | Team members with expandable flashcard profiles |
+| `/blog` | Blog post listing |
+| `/blog/[slug]` | Individual blog post |
+| `/contact` | Contact form + lab address |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Environment Variables
+
+Create a `.env.local` file (not committed):
+
+```env
+LAB_EMAIL=mark.matthews@ucd.ie      # contact form recipient
+RESEND_API_KEY=your_key_here         # only needed to activate email sending
+```
+
+The contact form logs submissions to the console until the Resend block in `app/api/contact/route.ts` is uncommented.
+
+---
+
+## Project Structure
+
+```
+app/                  # Next.js App Router pages and API routes
+components/           # UI components (layout, home, research, people, etc.)
+content/              # All editable content (JSON + MDX)
+lib/                  # Data loaders (mdx.ts, data.ts)
+public/               # Static assets (ucd-logo.svg, images/)
+scripts/              # CLI scripts for adding content
+types/                # TypeScript interfaces (single source of truth)
+```
+
+---
+
+## Deployment
+
+Deployed on [Vercel](https://vercel.com). All routes are statically generated at build time except `/api/contact` and `/api/search`.
