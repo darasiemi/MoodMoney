@@ -8,9 +8,9 @@ export function Hero() {
       <div className="hero-pattern absolute inset-0 pointer-events-none" aria-hidden />
 
 
-      <div className="relative flex flex-col lg:flex-row items-center gap-8">
+      <div className="relative flex flex-col lg:flex-row items-start gap-8">
         {/* Left — text content */}
-        <div className="w-full lg:max-w-[38%] pl-0 lg:ml-[-2rem] xl:ml-[-4rem]">
+        <div className="w-full lg:max-w-[45%]">
           <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.2rem] font-extrabold text-ucd-navy dark:text-white leading-[1.2] tracking-tight mb-4 whitespace-nowrap">
             Mood &amp;{" "}
             <span className="relative inline-block">
@@ -50,7 +50,7 @@ export function Hero() {
             impact.
           </p>
 
-          <div className="flex flex-nowrap gap-3">
+          <div className="flex flex-nowrap gap-3 mb-10">
             <Link
               href="/research"
               className="px-8 py-3.5 bg-ucd-navy hover:bg-ucd-navy-800 text-white rounded-xl text-base font-semibold transition-colors shadow-sm whitespace-nowrap"
@@ -70,18 +70,18 @@ export function Hero() {
               Get in Touch
             </Link>
           </div>
-        </div>
 
-        {/* Right — hero image */}
-        <div className="hidden lg:block flex-shrink-0 w-[560px] xl:w-[620px] mr-[-10rem] xl:mr-[-12rem]">
-          <Image
-            src="/images/financial-mood.svg"
-            alt="Financial behaviour and mental health illustration"
-            width={620}
-            height={620}
-            className="w-full h-auto object-contain rounded-2xl"
-            priority
-          />
+          {/* Image — sits below buttons, wider than the text column */}
+          <div className="w-[140%]">
+            <Image
+              src="/images/financial-mood.svg"
+              alt="Financial behaviour and mental health illustration"
+              width={900}
+              height={900}
+              className="w-full h-auto object-contain rounded-2xl"
+              priority
+            />
+          </div>
         </div>
       </div>
     </section>
