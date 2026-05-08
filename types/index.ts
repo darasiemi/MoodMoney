@@ -26,7 +26,7 @@ export interface ProjectFrontmatter {
   image?: string;
   featured?: boolean;
   collaborators?: string[];
-  funding?: string;
+  funding?: string | string[];
 }
 
 export interface Project extends ProjectFrontmatter {

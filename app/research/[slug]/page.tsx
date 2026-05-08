@@ -82,7 +82,9 @@ export default async function ProjectPage({ params }: Props) {
                   Funding
                 </dt>
                 <dd className="text-gray-700 dark:text-gray-300">
-                  {project.funding}
+                  {Array.isArray(project.funding)
+                    ? project.funding.join(", ")
+                    : project.funding}
                 </dd>
               </div>
             )}
