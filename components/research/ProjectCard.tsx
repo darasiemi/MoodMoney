@@ -24,8 +24,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
       href={`/research/${slug}`}
       className="group relative block bg-white dark:bg-[#071030] border border-ucd-navy-100 dark:border-[#0e2155] rounded-xl p-6 hover:border-ucd-green dark:hover:border-ucd-green hover:shadow-lg transition-all overflow-hidden"
     >
-      {/* Left accent bar — green on hover */}
-      <span className="absolute left-0 top-0 bottom-0 w-1 bg-ucd-navy group-hover:bg-ucd-green transition-colors rounded-l-xl" aria-hidden />
 
       <div className="flex items-start justify-between gap-4 mb-3">
         <h3 className="text-base font-bold text-ucd-navy dark:text-white group-hover:text-ucd-green dark:group-hover:text-ucd-green-100 transition-colors leading-snug">

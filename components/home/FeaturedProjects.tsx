@@ -10,7 +10,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
   return (
     <section className="mb-16">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="section-heading text-2xl font-bold text-ucd-navy dark:text-white">
+        <h2 className="text-2xl font-bold text-ucd-navy dark:text-white">
           Featured Research{" "}
           <span className="font-normal italic text-gray-400 dark:text-gray-500">what we&apos;re working on.</span>
         </h2>
