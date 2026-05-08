@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative py-20 sm:py-28">
+    <section className="relative py-12 sm:py-20 overflow-x-hidden">
       {/* Dot-grid background pattern */}
       <div className="hero-pattern absolute inset-0 pointer-events-none" aria-hidden />
 
@@ -11,7 +11,7 @@ export function Hero() {
       <div className="relative flex flex-col lg:flex-row items-start gap-8">
         {/* Left — text content */}
         <div className="w-full lg:max-w-[45%]">
-          <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.2rem] font-extrabold text-ucd-navy dark:text-white leading-[1.2] tracking-tight mb-4 whitespace-nowrap">
+          <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.2rem] font-extrabold text-ucd-navy dark:text-white leading-[1.2] tracking-tight mb-4 lg:whitespace-nowrap">
             Mood &amp;{" "}
             <span className="relative inline-block">
               Money Lab
@@ -19,7 +19,7 @@ export function Hero() {
               <span className="absolute -bottom-1 left-0 right-0 h-1.5 bg-ucd-gold rounded-full" aria-hidden />
             </span>
             <br />
-            <span className="text-lg sm:text-xl lg:text-2xl font-normal italic text-gray-400 dark:text-gray-500 whitespace-nowrap">
+            <span className="text-lg sm:text-xl lg:text-2xl font-normal italic text-gray-400 dark:text-gray-500 lg:whitespace-nowrap">
               where finance meets mental health.
             </span>
           </h1>
@@ -50,7 +50,7 @@ export function Hero() {
             impact.
           </p>
 
-          <div className="flex flex-nowrap gap-3 mb-10">
+          <div className="flex flex-wrap sm:flex-nowrap gap-3 mb-10">
             <Link
               href="/research"
               className="px-8 py-3.5 bg-ucd-navy hover:bg-ucd-navy-800 text-white rounded-xl text-base font-semibold transition-colors shadow-sm whitespace-nowrap"
@@ -72,7 +72,7 @@ export function Hero() {
           </div>
 
           {/* Image — sits below buttons, wider than the text column */}
-          <div className="w-[140%]">
+          <div className="w-full lg:w-[140%]">
             <Image
               src="/images/financial-mood.svg"
               alt="Financial behaviour and mental health illustration"
