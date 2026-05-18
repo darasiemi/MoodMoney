@@ -32,16 +32,7 @@ export default function PublicationsPage() {
       </h1>
       <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl">
         Peer-reviewed journal articles, conference papers, and preprints from
-        the lab. See also our{" "}
-        <a
-          href="https://scholar.google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-ucd-navy hover:text-ucd-gold dark:text-ucd-navy-200 dark:hover:text-ucd-gold underline underline-offset-2 transition-colors"
-        >
-          Google Scholar profile
-        </a>
-        .
+        the lab.
       </p>
 
       <div className="space-y-12">
