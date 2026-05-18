@@ -72,22 +72,10 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://twitter.com/moodmoneylab"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:oluwadara.adedeji@ucdconnect.ie"
                   className="hover:text-ucd-gold transition-colors"
                 >
-                  @moodmoneylab
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/moodmoneylab"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-ucd-gold transition-colors"
-                >
-                  GitHub
+                  oluwadara.adedeji@ucdconnect.ie
                 </a>
               </li>
               <li>
