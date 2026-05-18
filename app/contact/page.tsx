@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { MapPin, Mail, ExternalLink } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -54,29 +54,6 @@ export default function ContactPage() {
               </a>
             </div>
 
-            <div className="flex items-center gap-3">
-              <ExternalLink size={18} className="shrink-0 text-ucd-navy dark:text-ucd-gold" />
-              <a
-                href="https://twitter.com/moodmoneylab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-ucd-navy dark:hover:text-ucd-gold transition-colors"
-              >
-                @moodmoneylab
-              </a>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <ExternalLink size={18} className="shrink-0 text-ucd-navy dark:text-ucd-gold" />
-              <a
-                href="https://github.com/moodmoneylab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-ucd-navy dark:hover:text-ucd-gold transition-colors"
-              >
-                github.com/moodmoneylab
-              </a>
-            </div>
 
             {/* PhD callout box */}
             <div className="mt-4 p-5 border-l-4 border-ucd-gold bg-ucd-gold-50 dark:bg-[#071030] dark:border-ucd-gold rounded-r-xl">
