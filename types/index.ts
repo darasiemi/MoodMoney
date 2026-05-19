@@ -40,6 +40,7 @@ export interface Person {
   roleLabel: string;
   bio: string;
   image?: string;
+  imagePosition?: string;
   email?: string;
   website?: string;
   googleScholar?: string;
@@ -63,4 +64,10 @@ export interface BlogPostFrontmatter {
 
 export interface BlogPost extends BlogPostFrontmatter {
   content: string;
+}
+
+export interface NewsItem {
+  id: string;
+  date: string;
+  text: string;
 }

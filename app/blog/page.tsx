@@ -17,7 +17,7 @@ export default function BlogPage() {
     <div className="py-12">
       <h1 className="text-4xl font-extrabold text-ucd-navy dark:text-white mb-4 tracking-tight">
         Blog{" "}
-        <span className="font-normal italic text-gray-400 dark:text-gray-500">from the lab.</span>
+        <span className="font-normal italic text-gray-400 dark:text-gray-500">&nbsp;from the lab.</span>
       </h1>
       <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl">
         Research updates, accessible explainers, and perspectives from the lab.

@@ -1,19 +1,44 @@
 import Link from "next/link";
 import { PublicationCard } from "@/components/publications/PublicationCard";
-import type { Publication, BlogPost } from "@/types";
+import type { Publication, BlogPost, NewsItem } from "@/types";
 
 interface RecentNewsProps {
   publications: Publication[];
   posts: BlogPost[];
+  news: NewsItem[];
 }
 
-export function RecentNews({ publications, posts }: RecentNewsProps) {
+export function RecentNews({ publications, posts, news }: RecentNewsProps) {
   return (
     <section className="mb-16">
       <h2 className="text-2xl font-bold text-ucd-navy dark:text-white mb-8">
         Recent News{" "}
         <span className="font-normal italic text-gray-400 dark:text-gray-500">&amp; publications.</span>
       </h2>
+
+      {/* Latest news items */}
+      {news.length > 0 && (
+        <div className="mb-10">
+          <h3 className="text-xs font-bold uppercase tracking-widest text-ucd-navy-700 dark:text-ucd-navy-200 mb-4">
+            Latest news
+          </h3>
+          <div className="space-y-5">
+            {news.map((item) => {
+              const d = new Date(item.date);
+              const dateStr = d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+              return (
+                <div key={item.id} className="flex gap-6 text-sm">
+                  <span className="shrink-0 font-bold text-ucd-navy dark:text-white w-28">{dateStr}</span>
+                  <p
+                    className="text-gray-600 dark:text-gray-400 leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: item.text }}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Recent blog posts */}
       {posts.length > 0 && (

@@ -74,6 +74,7 @@ export function PersonCard({ person }: { person: Person }) {
             width={240}
             height={240}
             className="rounded-full object-cover w-56 h-56 ring-4 ring-ucd-green/20 mb-4"
+            style={{ objectPosition: person.imagePosition ?? "center" }}
           />
         ) : (
           <div className="w-56 h-56 rounded-full bg-ucd-navy flex items-center justify-center text-white text-5xl font-bold select-none ring-4 ring-ucd-green/20 mb-4">

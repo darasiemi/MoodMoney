@@ -1,4 +1,4 @@
-import type { Publication, Person } from "@/types";
+import type { Publication, Person, NewsItem } from "@/types";
 
 export function getPublications(): Publication[] {
   // Dynamic require so this works in server components without bundling issues
@@ -28,6 +28,12 @@ export function getActivePeople(): Person[] {
 
 export function getPeopleByRole(role: Person["role"]): Person[] {
   return getPeople().filter((p) => p.role === role);
+}
+
+export function getNewsItems(): NewsItem[] {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const data = require("@/content/news.json") as NewsItem[];
+  return data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 // Role display order for the People page
