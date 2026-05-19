@@ -1,0 +1,29 @@
+# Mood & Money Lab
+
+> Research lab at University College Dublin investigating the relationship between financial behaviour and mental health.
+
+## About
+
+The Mood & Money Lab is based in the School of Computer Science at University College Dublin (UCD), Ireland. Our research explores how objective financial data — such as spending patterns and transaction history — can serve as passive indicators of mental health, with a focus on conditions such as bipolar disorder and depression. We combine human-centered AI, applied machine learning, and participatory research methods.
+
+## People
+
+- **Mark Matthews** (Principal Investigator) — mark.matthews@ucd.ie
+- **Dara Adedeji** (PhD Candidate) — oluwadara.adedeji@ucdconnect.ie
+
+## Research
+
+Active and ongoing projects include:
+- Passive assessment of mental health through financial behaviour
+- Scoping review of mental health and financial variables
+- Participatory study on money and mental health
+
+## Publications
+
+Peer-reviewed journal articles, conference papers, and preprints. Notable venues include CHI, EAI PervasiveHealth, and others in the HCI and digital health space.
+
+## Contact
+
+- Email: mark.matthews@ucd.ie
+- Institution: School of Computer Science, University College Dublin, Belfield, Dublin 4, Ireland
+- Website: https://moodmoney.ucd.ie
