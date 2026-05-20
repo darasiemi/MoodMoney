@@ -14,7 +14,7 @@ import { Footer } from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: {
     template: "%s | Mood & Money Lab",
-    default: "Mood & Money Lab – AI & Digital Mental Health Research",
+    default: "Mood & Money Lab – Digital Mental Health Research",
   },
   description:
     "The Mood & Money Lab uses machine learning and NLP to study the intersection of financial behaviour and mental health. Department of Computer Science.",
