@@ -30,6 +30,11 @@ export function getPeopleByRole(role: Person["role"]): Person[] {
   return getPeople().filter((p) => p.role === role);
 }
 
+export function getTickerItems(): string[] {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  return require("@/content/ticker.json") as string[];
+}
+
 export function getNewsItems(): NewsItem[] {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const data = require("@/content/news.json") as NewsItem[];

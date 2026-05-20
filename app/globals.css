@@ -23,6 +23,7 @@
 
   /* Accent — Forest Green (active states, success feedback) */
   --color-ucd-green:     #2F6B3A;
+  --color-ucd-green-700: #3e8a4d;
   --color-ucd-green-100: #deeee0;
   --color-ucd-green-50:  #f0f8f1;
 
@@ -65,6 +66,16 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* ── News ticker ─────────────────────────────────────────────────── */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: ticker 30s linear infinite;
 }
 
 /* ── Hero dot-grid pattern ───────────────────────────────────────── */
