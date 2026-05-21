@@ -27,7 +27,7 @@
   {
     "id": "objective-study",
     "title": "Financial technologies (FinTech) for mental health: The potential of objective financial data to better understand the relationships between financial behavior and mental health",
-    "authors": ["Johnna Blair", "Jeff Brozena", "Mark Matthews","Thomas Richardson", " Saeed Abdullah"],
+    "authors": ["Johnna Blair", "Jeff Brozena", "Mark Matthews","Thomas Richardson", "Saeed Abdullah"],
     "year": 2022,
     "venue": "Frontiers in psychiatry",
     "venueShort": "Frontiers in Psychiatry",
@@ -51,5 +51,42 @@
     "pdf": "https://dl.acm.org/doi/pdf/10.1145/3613904.3642645",
     "tags": ["Financial technologies", "fintech", "privacy", "mental health", "bipolar disorder"],
     "featured": false
+  },
+  {
+    "id": "future-money",
+    "title": " Future of money and HCI",
+    "authors": ["Johnna Blair", "Jeff Brozena", "John Vines", "Jofish Kaye", "Mark Matthews", "Saeed Abdullah"],
+    "year": 2025,
+    "venue": " In Proceedings of the Extended Abstracts of the CHI Conference on Human Factors in Computing Systems. Association for Computing Machinery",
+    "venueShort": "CHI 2025",
+    "type": "conference",
+    "doi":"10.1145/3706599.3706711",
+    "pdf": "https://dl.acm.org/doi/epdf/10.1145/3706599.3706711",
+    "abstract": "Money and financial activities reflect social connections and societal norms. Collaborative financial activities and decision-making are highly common in our day-to-day activities. However, existing financial technologies (fintech) are often limited to individual-centric approaches and goals. Recent HCI work has repeatedly noted the need for creating new interaction strategies and design paradigms to better support our financial behaviors, habits, and goals. However, there has not been much concrete work yet, specifically when it comes to supporting collaborative behaviors and social norms that underpin much of our daily financial activities. In this in-person workshop, we will bring together an interdisciplinary group of researchers interested in reshaping the current landscape of digital money and fintech with a focus on social and collaborative interactions. Specifically, we will identify limitations of existing fintech approaches and potential strategies to address these limitations. We will also discuss key challenges for fintech design and development, including collaboration, privacy, agency, trust, and accessibility. The workshop will lead to identifying novel HCI research and implementation directions focusing on the future of financial technologies.",
+    "tags": ["Human-centred feature computig","collaborative and social computing", "empirical studies in HCI", "applied computing"],
+    "featured": false
+  },
+  {
+    "id": "blockchain-money",
+    "title": "CommonHealth: Multi-agent evaluation of blockchain-based patient-centred health networks",
+    "authors": [
+      "Mark Matthews",
+      "Rem Collier",
+      "Evan Spendlove"
+    ],
+    "year": 2025,
+    "venue": "In European Conference on Multi-Agent Systems. Springer Nature Switzerland.",
+    "venueShort": "Springer Nature",
+    "type": "journal",
+    "doi": "10.1145/3706599.3706711",
+    "pdf": "https://link.springer.com/chapter/10.1007/978-3-031-93930-3_24",
+    "abstract": "Information is essential to delivering effective healthcare. Health information traditionally resides with the entity providing healthcare to the patient. However, this is just one model for how information can be situated within a healthcare context. Decentralized health networks provide the infrastructure to realize a different information and computational model that centers the locus of health information around the patients. In this paper, we present a framework for building and testing decentralized health networks that enable patients to share their data with a communal network to gain value derived from aggregated data. While decentralized networks disperse control of health information among a network of individuals, they require careful design and testing to ensure the network’s incentives promote the interests of each member, scale cost-effectively, and protect privacy. Deploying a decentralized health network without appropriate testing presents multiple risks, including the risk of data breach, erroneous machine learning model predictions, and costly platform management. To counter these risks, we demonstrate how multi-agent-based evaluation can be central to testing and refining patient-centered decentralized health networks such that the incentives are robust, sustainable, and less susceptible to exploitation. We find that agent-based approaches can help speed up development and build confidence in scalability, safety, and effective functioning prior to real-world deployment. We also provide design recommendations and suggestions for future work.",
+    "tags": [
+      "Healthcare",
+      "agent-based testing",
+      "blockchain"
+    ],
+    "featured": false
   }
+
 ]
