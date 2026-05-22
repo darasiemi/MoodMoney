@@ -4,14 +4,14 @@
     "name": "Mark Matthews",
     "role": "pi",
     "roleLabel": "Principal Investigator",
-    "bio": "Mark’s research explores the relationship between technology and wellbeing, focusing on how digital systems can support people with serious mental illness and how technology design influences key mental health factors such as sleep–wake cycles and circadian rhythms. His work integrates advanced behavioural sensing, interaction design, and machine learning to address complex challenges in mental health.",
+    "bio": "Mark is an Assistant Professor in the School of Computer Science, University College Dublin, Ireland. His research explores the relationship between technology and wellbeing, focusing on how digital systems can support people with serious mental illness and how technology design influences key mental health factors such as sleep–wake cycles and circadian rhythms. His work integrates advanced behavioural sensing, interaction design, and machine learning to address complex challenges in mental health.",
     "image": "/images/people/mark.png",
     "imagePosition": "center 40%",
     "email": "mark.matthews@ucd.ie",
     "website": "https://people.ucd.ie/mark.matthews",
     "googleScholar": "https://scholar.google.com/citations?user=rhv5sLgAAAAJ&hl=en",
     "linkedin": "https://www.linkedin.com/in/mjamatthews/",
-    "researchInterests": ["Digital mental health", "Human–Computer Interaction", "Digital Phenotyping", "Behavioural sensing"]
+    "researchInterests": ["digital mental health", "human–computer interaction", "digital phenotyping", "behavioural sensing"]
 
   },
   {
@@ -19,14 +19,58 @@
     "name": "Dara Adedeji",
     "role": "phd",
     "roleLabel": "PhD Candidate",
-    "bio": "Dara is a third-year PhD candidate investigating the relationship between mental health and financial behaviour and how this can be assessed using objective financial data and machine learning. He is passionate about mental health and has over three years of volunteering experience in the field.",
+    "bio": "Dara is a third-year PhD candidate in the School of Computer Science, University College Dublin, Ireland. His research investigates the relationship between mental health and financial behaviour and how this can be assessed using objective financial data and machine learning. He is passionate about mental health and has over three years of volunteering experience in the field.",
     "image": "/images/people/dara.png",
     "email": "oluwadara.adedeji@ucdconnect.ie",
     "website": "https://darasiemi.github.io/",
     "googleScholar": "https://scholar.google.com/citations?user=UfQp-rMAAAAJ&hl=en",
     "linkedin": "https://www.linkedin.com/in/oluwadara-adedeji/",
-    "researchInterests": ["Human-Centered AI", "Applied Machine Learning", "Participatory and Public Involved Technology"]
+    "researchInterests": ["human-centered AI", "applied Machine Learning", "participatory and public involved technology"]
+  },
+  {
+    "id": "jeff-brozena",
+    "name": "Jeff Brozena",
+    "role": "collaborator",
+    "bio": "Jeff is a PhD candidate at Pennsylvania State University, USA, in the Wellbeing and Health Innovation Lab. His research explores how financial technologies can help address the unique financial challenges experienced by individuals living with bipolar disorder. In particular, he investigates whether integrating financial behaviors and data into clinical contexts is feasible, acceptable, and ethically appropriate, given the scale and severity of these challenges.",
+    "image": "/images/people/jeff.jpeg",
+    "website": "https://brozena.net/",
+    "googleScholar": "https://scholar.google.com/citations?user=EC9BDRAAAAAJ&hl=en",
+    "linkedin": "https://www.linkedin.com/in/brozena/",
+    "researchInterests": ["digital health", "mental health informatics", "financial technologies"]
+  },
+  {
+    "id": "saeed-abdullah",
+    "name": "Saeed Abdullah",
+    "role": "collaborator",
+    "bio": "Saeed is an Associate Professor in the College of Information Sciences and Technology (IST) at Penn State, USA, and leads the Wellbeing & Health Innovation (WHI) lab. His goal is to improve health equity and access for all.",
+    "image": "/images/people/saeed.jpg",
+    "website": "https://saeedabdullah.com/",
+    "googleScholar": "https://scholar.google.com/citations?user=UK1Z4wYAAAAJ",
+    "researchInterests": ["financial technologies (fintech)", "bipolar disorder", "dementia"]
+  },
+  {
+    "id": "johnna-blair",
+    "name": "Johnna Blair",
+    "role": "collaborator",
+    "bio": "Johnna is currently a Postdoctoral Researcher in the Wellbeing and Health Innovation (WHI) Lab at Pennsylvania State University, USA. She recently completed her PhD in the College of Information Sciences and Technology (IST) at the same institution. Prior to this, she earned a B.S. in Psychology with a minor in Sociology from Penn State.",
+    "image": "/images/people/johnna.jpg",
+    "website": "https://johnnablair.weebly.com/",
+    "googleScholar": "https://scholar.google.com/citations?user=CRPW3zwAAAAJ&hl=en",
+    "linkedin": "https://www.linkedin.com/in/johnna-blair-ph-d",
+    "researchInterests": ["human computer interaction (HCI)", "health informatics and pervasive technologies", "mental health and psychology​"]
+  },
+  {
+    "id": "thomas-richardson",
+    "name": "Thomas Richardson",
+    "role": "collaborator",
+    "bio": "Thomas is an Associate Professor in Clinical Psychology & CBT at the University of Southampton, UK. He is a Clinical Psychologist who works in teaching and research in the School of Psychology around Adult Mental Health.",
+    "image": "/images/people/thomas.jpeg",
+    "website": "https://www.southampton.ac.uk/people/5xbzmk/doctor-thomas-richardson#about",
+    "googleScholar": "https://scholar.google.com/citations?user=VTR2efAAAAAJ&hl=en",
+    "linkedin": "https://www.linkedin.com/in/dr-thomas-richardson-60a80218/",
+    "researchInterests": ["financial difficulties and mental health", "cannabis use and psychosis", "digital interventions and e-mental health"]
   }
+
 
   
 ]
