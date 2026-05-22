@@ -87,6 +87,28 @@
       "blockchain"
     ],
     "featured": false
+  },
+  {
+    "id": "",
+    "title": "Using objective financial data in mental health interventions: Supporting long-term stability and financial collaboration for individuals with bipolar disorder",
+    "authors": ["Johnna Blair", "Jeff Brozena","Hee Jeong Han","Dahlia Mukherjee", "Erika F. H. Saunders", "Mark Matthews", "Thomas Richardson", "Saeed Abdullah"],
+    "year": 2025,
+    "venue": "International Society for Bipolar Disorders",
+    "venueShort": "ISBD 2025",
+    "type": "conference",
+    "abstract": "Bipolar Disorder (BD) is associated with symptoms that can significantly affect financial stability, with individuals diagnosed with BD I reported to be substantially more likely to experience severe financial difficulties such as bankruptcy compared to healthy individuals. Recent advances in financial data accessibility, including the emergence of open banking APIs, provide opportunities to objectively study BD-related financial behaviors and identify spending patterns associated with mood episodes, such as impulsive spending bursts during manic phases. In addition, collaboration with care partners, including close friends and family members, may support financial decision-making during periods of mood instability. However, sharing financial data and financial control introduces important ethical, privacy, and autonomy-related challenges that require careful consideration in system design. Developing collaborative just-in-time financial interventions may help individuals maintain financial stability while also serving as an early warning mechanism for mood episode onset.",
+    "tags": ["Bipolar disorder","digital mental health", "interventions"],
+    "featured": false
+  },
+  {
+    "id": "impulsive-spending",
+    "title": "Impulsive spending and finance management in bipolar disorder: Technology as both a problem and potential solution",
+    "authors": ["Thomas Richardson", "Johnna Blair", "Jeff Brozena", "Mark Matthews", "Saeed Abdullah"],
+    "year": 2023,
+    "type": "presentation",
+    "pdf": "https://www.researchgate.net/publication/371957435_Impulsive_Spending_and_Finance_Management_in_Bipolar_Disorder_Technology_as_both_a_Problem_and_Potential_Solution",
+    "tags": ["Bipolar disorder","Data preference", "Digital phenotyping"],
+    "featured": false
   }
 
 ]
