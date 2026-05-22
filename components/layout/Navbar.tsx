@@ -85,6 +85,7 @@ export function Navbar() {
                         key={href}
                         href={href}
                         onClick={() => setOpen(false)}
+                        style={{ fontFamily: "var(--font-montserrat)" }}
                         className={`flex items-center gap-2 px-4 py-3 text-sm border-b border-ucd-navy-50 dark:border-[#0e2155] last:border-0 transition-colors ${
                           active
                             ? "text-ucd-navy dark:text-white font-semibold bg-ucd-navy-50 dark:bg-[#0e2155]"
