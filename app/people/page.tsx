@@ -31,7 +31,7 @@ export default function PeoplePage() {
           <h2 className="section-heading text-xl font-bold text-ucd-navy dark:text-white mb-5">
             {label}
           </h2>
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4 items-start">
             {members.map((person) => (
               <PersonCard key={person.id} person={person} />
             ))}
