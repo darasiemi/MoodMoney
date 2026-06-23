@@ -28,6 +28,39 @@
     "researchInterests": ["human-centered AI", "applied Machine Learning", "participatory and public involved technology"]
   },
   {
+    "id": "david-coyle",
+    "name": "David Coyle",
+    "role": "collaborator",
+    "bio": "David is a Professor with the School of Computer Science, University College Dublin. He received his PhD in Human Computer Interaction from Trinity College Dublin. David's work focuses on Human Computer Interaction and digital health, with an emphasis on digital mental health.",
+    "image": "/images/people/david.png",
+    "website": "https://www.davidcoyle.org/",
+    "googleScholar": "https://scholar.google.co.uk/citations?user=9d9bOOUAAAAJ&hl=en",
+    "linkedin": "https://www.linkedin.com/in/david-coyle-77473113/",
+    "researchInterests": ["human computer interaction (HCI)","digital mental health"]
+  },
+  {
+    "id": "keith-gaynor",
+    "name": "Keith Gaynor",
+    "role": "collaborator",
+    "bio": "Keith Gaynor is an Associate Professor in Clinical Psychology in the School of Psychology at University College Dublin and a member of the Clinical Psychology Training Programme. He is also a Senior Clinical Psychologist with DETECT, the Early Intervention in Psychosis Service. For over 20 years, Keith has worked and conducted research in the areas of psychosis and early intervention in adolescent mental health. He has published extensively on psychological approaches to psychosis and is the Principal Investigator of POPlab UCD (the Psychology of Psychosis Research Lab).",
+    "image": "/images/people/keith.jpeg",
+    "website": "https://people.ucd.ie/keith.gaynor",
+    "googleScholar": "https://scholar.google.com/citations?user=HMCXD0oAAAAJ&hl=en",
+    "linkedin": "https://www.linkedin.com/in/keith-gaynor-914932100/",
+    "researchInterests": ["psychology","mental health"]
+  },
+  {
+    "id": "andreas-balaskas",
+    "name": "Andreas Balaskas",
+    "role": "collaborator",
+    "bio": "Andreas is a postdoctoral research fellow at University College Dublin's School of Computer Science. He holds a Ph.D. in Human-Computer Interaction from Trinity College Dublin, an MSc in Human-Computer Interaction from the Umeå University of Sweden, and a BSc in Informatics and Computer Technology from the Technological Educational Institution of Western Macedonia in Greece.",
+    "image": "/images/people/andreas.jpg",
+    "website": "https://people.ucd.ie/andreas.balaskas",
+    "googleScholar": "https://scholar.google.com/citations?user=VP9c9CkAAAAJ&hl=en",
+    "linkedin": "https://www.linkedin.com/in/balaskasandreas/",
+    "researchInterests": ["human computer interaction (HCI)","digital health", "mental health technology"]
+  },
+  {
     "id": "jeff-brozena",
     "name": "Jeff Brozena",
     "role": "collaborator",
