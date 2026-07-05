@@ -15,8 +15,8 @@ export function NewsTicker({ items }: NewsTickerProps) {
         {repeated.map((text, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-2 text-ucd-gold text-base font-bold flex-shrink-0"
-            style={{ fontFamily: "var(--font-montserrat)", paddingLeft: "3rem", paddingRight: "3rem" }}
+            className="inline-flex items-center gap-2 text-base font-bold flex-shrink-0"
+            style={{ fontFamily: "var(--font-montserrat)", paddingLeft: "3rem", paddingRight: "3rem", color: "#ffcd00" }}
           >
             <span className="text-white/60 mr-2">•</span>
             {text}
