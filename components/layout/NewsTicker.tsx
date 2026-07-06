@@ -51,11 +51,12 @@ export function NewsTicker({ items }: NewsTickerProps) {
         backgroundColor: "#4a9960",
         paddingTop: "12px",
         paddingBottom: "12px",
+        transform: "translateZ(0)",
       }}
     >
       <div
         ref={trackRef}
-        style={{ display: "inline-flex", willChange: "transform" }}
+        style={{ display: "inline-flex" }}
       >
         {repeated.map((text, i) => (
           <span
