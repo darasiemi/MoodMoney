@@ -16,10 +16,11 @@ export function NewsTicker({ items }: NewsTickerProps) {
     <div
       style={{
         width: "100%",
-        overflow: "hidden",
         backgroundColor: "#4a9960",
         paddingTop: "12px",
         paddingBottom: "12px",
+        clipPath: "inset(0)",
+        WebkitClipPath: "inset(0)",
       }}
     >
       <div
