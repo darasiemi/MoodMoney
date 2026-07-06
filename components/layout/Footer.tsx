@@ -17,8 +17,9 @@ export function Footer() {
                 src="/ucd-logo.svg"
                 alt="University College Dublin"
                 width={28}
-                height={28}
+                height={40}
                 className="object-contain shrink-0"
+                style={{ height: "auto" }}
               />
               <p className="font-bold text-white">Mood &amp; Money Lab</p>
             </div>

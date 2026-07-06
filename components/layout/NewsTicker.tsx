@@ -7,11 +7,10 @@ export function NewsTicker({ items }: NewsTickerProps) {
 
   const repeated = [...items, ...items];
 
-  // Estimate pixel width from character count (~7px per char at 16px Montserrat)
-  // and target ~250px/s scroll speed to set duration proportionally.
+  // Estimate pixel width (~7px per char at 16px Montserrat) and target 180px/s.
+  // The result overrides the base 20s in globals.css via inline animation-duration.
   const totalChars = items.reduce((n, s) => n + s.length, 0);
-  const estimatedWidth = totalChars * 7; // px for one set of items
-  const duration = Math.round(estimatedWidth / 250); // seconds
+  const duration = `${Math.round((totalChars * 7) / 180)}s`;
 
   return (
     <div
@@ -23,25 +22,13 @@ export function NewsTicker({ items }: NewsTickerProps) {
         paddingBottom: "12px",
       }}
     >
-      {/* Inline style avoids CSS variable / custom-property bugs in production */}
-      <style>{`
-        @-webkit-keyframes nm-ticker {
-          from { -webkit-transform: translateX(0); transform: translateX(0); }
-          to   { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
-        }
-        @keyframes nm-ticker {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-        .nm-ticker-track {
-          display: inline-flex;
-          min-width: -webkit-max-content;
-          min-width: max-content;
-          -webkit-animation: nm-ticker ${duration}s linear infinite;
-          animation: nm-ticker ${duration}s linear infinite;
-        }
-      `}</style>
-      <div className="nm-ticker-track">
+      <div
+        className="nm-ticker-track"
+        style={{
+          animationDuration: duration,
+          WebkitAnimationDuration: duration,
+        }}
+      >
         {repeated.map((text, i) => (
           <span
             key={i}

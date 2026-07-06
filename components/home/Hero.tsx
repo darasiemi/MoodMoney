@@ -29,8 +29,9 @@ export function Hero() {
               src="/ucd-logo.svg"
               alt="University College Dublin"
               width={48}
-              height={48}
+              height={69}
               className="object-contain"
+              style={{ height: "auto" }}
             />
             <p className="text-base text-ucd-navy-700 dark:text-ucd-navy-200 font-medium uppercase tracking-widest" style={{ fontFamily: "var(--font-montserrat)" }}>
               University College Dublin

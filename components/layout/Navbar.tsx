@@ -46,8 +46,9 @@ export function Navbar() {
               src="/ucd-logo.svg"
               alt="University College Dublin"
               width={40}
-              height={40}
+              height={58}
               className="object-contain shrink-0"
+              style={{ height: "auto" }}
             />
             <div className="leading-tight">
               <span className="block text-sm font-bold text-ucd-navy dark:text-white tracking-tight">

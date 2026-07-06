@@ -68,7 +68,22 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ── News ticker — animation applied via Web Animations API in NewsTicker.tsx ── */
+/* ── News ticker ─────────────────────────────────────────────────── */
+@-webkit-keyframes nm-ticker {
+  from { -webkit-transform: translateX(0);    transform: translateX(0); }
+  to   { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+}
+@keyframes nm-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.nm-ticker-track {
+  display: inline-flex;
+  min-width: -webkit-max-content;
+  min-width: max-content;
+  -webkit-animation: nm-ticker 20s linear infinite;
+  animation: nm-ticker 20s linear infinite;
+}
 
 /* ── Hero dot-grid pattern ───────────────────────────────────────── */
 .hero-pattern {
