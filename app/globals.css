@@ -70,17 +70,13 @@ html {
 
 /* ── News ticker ─────────────────────────────────────────────────── */
 @keyframes ticker {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0%   { transform: translateX(0) translateZ(0); }
+  100% { transform: translateX(-50%) translateZ(0); }
 }
 
 .animate-ticker {
   animation: ticker 30s linear infinite;
   will-change: transform;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 /* ── Hero dot-grid pattern ───────────────────────────────────────── */
