@@ -6,7 +6,6 @@ interface NewsTickerProps {
   items: string[];
 }
 
-// Target scroll speed in pixels per second — tuned for readability on mobile.
 const PX_PER_SECOND = 200;
 
 export function NewsTicker({ items }: NewsTickerProps) {
@@ -14,15 +13,21 @@ export function NewsTicker({ items }: NewsTickerProps) {
 
   useEffect(() => {
     const track = trackRef.current;
-    if (!track) return;
-    // scrollWidth gives the true rendered width of all children, bypassing any
-    // overflow clipping the parent applies. Dividing by 2 gives one set's width
-    // since we doubled the items for the seamless loop.
+    if (!track || typeof track.animate !== "function") return;
+
+    // scrollWidth ignores overflow clipping, giving the true rendered width of
+    // all children. Half of that is exactly one set of items — the correct
+    // distance to translate for a seamless loop.
     const oneSetWidth = track.scrollWidth / 2;
-    const duration = +(oneSetWidth / PX_PER_SECOND).toFixed(2);
-    track.style.setProperty("--ticker-translate", `-${oneSetWidth}px`);
-    track.style.setProperty("--ticker-duration", `${duration}s`);
-    track.style.animationPlayState = "running";
+    const duration = (oneSetWidth / PX_PER_SECOND) * 1000; // ms
+
+    track.animate(
+      [
+        { transform: "translate3d(0, 0, 0)" },
+        { transform: `translate3d(-${oneSetWidth}px, 0, 0)` },
+      ],
+      { duration, iterations: Infinity, easing: "linear" }
+    );
   }, []);
 
   if (items.length === 0) return null;
@@ -31,7 +36,7 @@ export function NewsTicker({ items }: NewsTickerProps) {
 
   return (
     <div className="w-full overflow-hidden py-3" style={{ backgroundColor: "#4a9960" }}>
-      <div ref={trackRef} className="inline-flex animate-ticker">
+      <div ref={trackRef} className="inline-flex">
         {repeated.map((text, i) => (
           <span
             key={i}
