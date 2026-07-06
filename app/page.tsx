@@ -15,7 +15,10 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <div className="-mx-4 sm:-mx-6 lg:-mx-8 -mt-8 mb-12">
+      <div
+        className="-mx-4 sm:-mx-6 lg:-mx-8 -mt-8 mb-12"
+        style={{ backgroundColor: "#4a9960", paddingTop: "12px", paddingBottom: "12px" }}
+      >
         <NewsTicker items={tickerItems} />
       </div>
       <FeaturedProjects projects={projects} />
