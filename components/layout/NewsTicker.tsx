@@ -1,91 +1,58 @@
-"use client";
-
-import { useRef, useEffect } from "react";
-
 interface NewsTickerProps {
   items: string[];
 }
 
-const PX_PER_SECOND = 200;
-
 export function NewsTicker({ items }: NewsTickerProps) {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    let raf: number;
-    let running = true;
-
-    // Wait one frame so the browser has finished layout and scrollWidth is accurate.
-    const setup = requestAnimationFrame(() => {
-      if (!running) return;
-      const oneSetWidth = track.scrollWidth / 2;
-      if (oneSetWidth <= 0) return;
-
-      let position = 0;
-      let lastTs = performance.now();
-
-      const tick = (now: number) => {
-        if (!running) return;
-        position += (PX_PER_SECOND * (now - lastTs)) / 1000;
-        lastTs = now;
-        if (position >= oneSetWidth) position -= oneSetWidth;
-        track.style.transform = `translate3d(-${position}px, 0, 0)`;
-        raf = requestAnimationFrame(tick);
-      };
-
-      raf = requestAnimationFrame(tick);
-    });
-
-    return () => {
-      running = false;
-      cancelAnimationFrame(setup);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
   if (items.length === 0) return null;
 
   const repeated = [...items, ...items];
 
+  // Estimate pixel width from character count (~7px per char at 16px Montserrat)
+  // and target ~250px/s scroll speed to set duration proportionally.
+  const totalChars = items.reduce((n, s) => n + s.length, 0);
+  const estimatedWidth = totalChars * 7; // px for one set of items
+  const duration = Math.round(estimatedWidth / 250); // seconds
+
   return (
-    // Explicit height + overflow:hidden on a position:relative container.
-    // Absolutely-positioned children are always correctly clipped by overflow:hidden
-    // in all browsers — unlike inline/flex children with active GPU transforms.
     <div
       style={{
         width: "100%",
-        position: "relative",
-        height: "48px",
         overflow: "hidden",
         backgroundColor: "#4a9960",
+        paddingTop: "12px",
+        paddingBottom: "12px",
       }}
     >
-      <div
-        ref={trackRef}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
+      {/* Inline style avoids CSS variable / custom-property bugs in production */}
+      <style>{`
+        @-webkit-keyframes nm-ticker {
+          from { -webkit-transform: translateX(0); transform: translateX(0); }
+          to   { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+        }
+        @keyframes nm-ticker {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        .nm-ticker-track {
+          display: inline-flex;
+          min-width: -webkit-max-content;
+          min-width: max-content;
+          -webkit-animation: nm-ticker ${duration}s linear infinite;
+          animation: nm-ticker ${duration}s linear infinite;
+        }
+      `}</style>
+      <div className="nm-ticker-track">
         {repeated.map((text, i) => (
           <span
             key={i}
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "0.5rem",
-              fontSize: "1rem",
-              fontWeight: 700,
               flexShrink: 0,
               whiteSpace: "nowrap",
               fontFamily: "var(--font-montserrat)",
+              fontSize: "1rem",
+              fontWeight: 700,
               paddingLeft: "3rem",
               paddingRight: "3rem",
               color: "#ffcd00",
