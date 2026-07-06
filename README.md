@@ -24,7 +24,7 @@ npm run dev       # → http://localhost:3000
 npm run build     # production build + type-check
 npm run lint      # ESLint
 ```
-
+...
 ---
 
 ## Content Management
