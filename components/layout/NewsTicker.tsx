@@ -15,16 +15,20 @@ export function NewsTicker({ items }: NewsTickerProps) {
     const track = trackRef.current;
     if (!track) return;
 
-    // Wait one frame so the browser has completed layout and scrollWidth is accurate.
+    let raf: number;
+    let running = true;
+
+    // Wait one frame so the browser has finished layout and scrollWidth is accurate.
     const setup = requestAnimationFrame(() => {
+      if (!running) return;
       const oneSetWidth = track.scrollWidth / 2;
       if (oneSetWidth <= 0) return;
 
       let position = 0;
       let lastTs = performance.now();
-      let raf: number;
 
       const tick = (now: number) => {
+        if (!running) return;
         position += (PX_PER_SECOND * (now - lastTs)) / 1000;
         lastTs = now;
         if (position >= oneSetWidth) position -= oneSetWidth;
@@ -33,10 +37,13 @@ export function NewsTicker({ items }: NewsTickerProps) {
       };
 
       raf = requestAnimationFrame(tick);
-      return () => cancelAnimationFrame(raf);
     });
 
-    return () => cancelAnimationFrame(setup);
+    return () => {
+      running = false;
+      cancelAnimationFrame(setup);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   if (items.length === 0) return null;
@@ -44,19 +51,28 @@ export function NewsTicker({ items }: NewsTickerProps) {
   const repeated = [...items, ...items];
 
   return (
+    // Explicit height + overflow:hidden on a position:relative container.
+    // Absolutely-positioned children are always correctly clipped by overflow:hidden
+    // in all browsers — unlike inline/flex children with active GPU transforms.
     <div
       style={{
         width: "100%",
+        position: "relative",
+        height: "48px",
         overflow: "hidden",
         backgroundColor: "#4a9960",
-        paddingTop: "12px",
-        paddingBottom: "12px",
-        transform: "translateZ(0)",
       }}
     >
       <div
         ref={trackRef}
-        style={{ display: "inline-flex" }}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+        }}
       >
         {repeated.map((text, i) => (
           <span
