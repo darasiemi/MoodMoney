@@ -7,8 +7,6 @@ export function NewsTicker({ items }: NewsTickerProps) {
 
   const repeated = [...items, ...items];
 
-  // Estimate pixel width (~7px per char at 16px Montserrat) and target 180px/s.
-  // The result overrides the base 20s in globals.css via inline animation-duration.
   const totalChars = items.reduce((n, s) => n + s.length, 0);
   const duration = `${Math.round((totalChars * 7) / 180)}s`;
 
@@ -16,28 +14,11 @@ export function NewsTicker({ items }: NewsTickerProps) {
     <div style={{ width: "100%" }}>
       <div
         className="nm-ticker-track"
-        style={{
-          animationDuration: duration,
-          WebkitAnimationDuration: duration,
-        }}
+        style={{ animationDuration: duration, WebkitAnimationDuration: duration }}
       >
         {repeated.map((text, i) => (
-          <span
-            key={i}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              flexShrink: 0,
-              whiteSpace: "nowrap",
-              fontFamily: "var(--font-montserrat)",
-              fontSize: "1rem",
-              fontWeight: 700,
-              paddingLeft: "3rem",
-              paddingRight: "3rem",
-              color: "#ffcd00",
-            }}
-          >
-            <span style={{ color: "rgba(255,255,255,0.6)", marginRight: "0.5rem" }}>•</span>
+          <span key={i} className="nm-ticker-item">
+            <span className="nm-ticker-bullet">•</span>
             {text}
           </span>
         ))}

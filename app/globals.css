@@ -77,12 +77,34 @@ html {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+.nm-ticker-band {
+  background-color: #4a9960;
+  overflow: hidden;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
 .nm-ticker-track {
   display: inline-flex;
   min-width: -webkit-max-content;
   min-width: max-content;
   -webkit-animation: nm-ticker 20s linear infinite;
   animation: nm-ticker 20s linear infinite;
+}
+.nm-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-family: var(--font-montserrat);
+  font-size: 1rem;
+  font-weight: 700;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  color: #ffcd00;
+}
+.nm-ticker-bullet {
+  color: rgba(255, 255, 255, 0.6);
+  margin-right: 0.5rem;
 }
 
 /* ── Hero dot-grid pattern ───────────────────────────────────────── */
