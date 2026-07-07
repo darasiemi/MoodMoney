@@ -16,7 +16,7 @@ export default function HomePage() {
     <>
       <Hero />
       <div
-        className="-mx-4 sm:-mx-6 lg:-mx-8 -mt-10 sm:-mt-14 mb-10"
+        className="-mx-4 sm:-mx-6 lg:-mx-8 mb-10"
         style={{
           backgroundColor: "#4a9960",
           paddingTop: "12px",

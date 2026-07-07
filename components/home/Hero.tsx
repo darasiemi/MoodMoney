@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative py-12 sm:py-20 overflow-x-hidden">
+    <section className="relative pt-12 pb-6 sm:pt-20 sm:pb-8 overflow-x-hidden">
       {/* Dot-grid background pattern */}
       <div className="hero-pattern absolute inset-0 pointer-events-none" aria-hidden />
 
