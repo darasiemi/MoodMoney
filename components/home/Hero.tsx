@@ -44,7 +44,7 @@ export function Hero() {
             build tools that help people with mental health conditions, particularly bipolar, help manage their finances better.
           </p>
 
-          <p className="text-gray-500 dark:text-gray-400 mb-10 leading-relaxed">
+          <p className="text-gray-500 dark:text-gray-400 mb-6 sm:mb-10 leading-relaxed">
             Based at the School of Computer Science, we partner with clinical
             institutions, financial services, and patient advocacy groups to
             conduct research that is rigorous, fair, and grounded in real-world
@@ -73,8 +73,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right — SVG: beside text on desktop, below buttons on mobile */}
-        <div className="w-full lg:flex-1">
+        {/* Right — SVG: desktop only */}
+        <div className="hidden lg:block lg:flex-1">
           <Image
             src="/images/financial-mood.svg"
             alt="Financial behaviour and mental health illustration"
