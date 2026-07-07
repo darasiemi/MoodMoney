@@ -13,13 +13,7 @@ export function NewsTicker({ items }: NewsTickerProps) {
   const duration = `${Math.round((totalChars * 7) / 180)}s`;
 
   return (
-    <div
-      style={{
-        width: "100%",
-        clipPath: "inset(0)",
-        WebkitClipPath: "inset(0)",
-      }}
-    >
+    <div style={{ width: "100%" }}>
       <div
         className="nm-ticker-track"
         style={{

@@ -1,9 +1,9 @@
 import { Hero } from "@/components/home/Hero";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { RecentNews } from "@/components/home/RecentNews";
-import { NewsTicker } from "@/components/layout/NewsTicker";
 import { getFeaturedProjects, getAllBlogPosts } from "@/lib/mdx";
 import { getFeaturedPublications, getNewsItems, getTickerItems } from "@/lib/data";
+import { NewsTicker } from "@/components/layout/NewsTicker";
 
 export default function HomePage() {
   const projects = getFeaturedProjects();
@@ -16,8 +16,14 @@ export default function HomePage() {
     <>
       <Hero />
       <div
-        className="-mx-4 sm:-mx-6 lg:-mx-8 -mt-8 mb-12"
-        style={{ backgroundColor: "#4a9960", paddingTop: "12px", paddingBottom: "12px" }}
+        className="-mx-4 sm:-mx-6 lg:-mx-8 -mt-10 sm:-mt-14 mb-10"
+        style={{
+          backgroundColor: "#4a9960",
+          paddingTop: "12px",
+          paddingBottom: "12px",
+          clipPath: "inset(0)",
+          WebkitClipPath: "inset(0)",
+        }}
       >
         <NewsTicker items={tickerItems} />
       </div>
