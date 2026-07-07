@@ -73,14 +73,14 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right — SVG: desktop only */}
-        <div className="hidden lg:block lg:flex-1">
+        {/* Right — illustration: below content on mobile, beside on desktop */}
+        <div className="w-full lg:flex-1 mt-2 lg:mt-0">
           <Image
             src="/images/financial-mood.svg"
             alt="Financial behaviour and mental health illustration"
             width={900}
             height={900}
-            className="w-full h-auto object-contain rounded-2xl"
+            className="w-full max-w-sm mx-auto lg:max-w-none h-auto object-contain rounded-2xl"
             priority
           />
         </div>
