@@ -21,8 +21,7 @@ export default function HomePage() {
           backgroundColor: "#4a9960",
           paddingTop: "12px",
           paddingBottom: "12px",
-          clipPath: "inset(0)",
-          WebkitClipPath: "inset(0)",
+          overflow: "hidden",
         }}
       >
         <NewsTicker items={tickerItems} />
