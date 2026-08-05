@@ -64,10 +64,6 @@ export default async function BlogPostPage({ params }: Props) {
             {post.title}
           </h1>
 
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
-            {post.summary}
-          </p>
-
           <div className="flex flex-wrap gap-2">
             {post.tags.map((tag) => (
               <Tag key={tag} label={tag} />

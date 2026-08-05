@@ -49,10 +49,6 @@ export default function BlogPage() {
               {post.title}
             </h2>
 
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-3 line-clamp-2 leading-relaxed">
-              {post.summary}
-            </p>
-
             <div className="flex items-center justify-between">
               <div className="flex flex-wrap gap-1.5">
                 {post.tags.map((tag) => (
