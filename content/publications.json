@@ -132,6 +132,35 @@
     "abstract": "Ethical governance of AI-driven systems is often expressed through high-level principles and static documentation, creating a gap between regulatory requirements and system-level verification. This challenge is particularly acute in digital phenotyping, where continuous behavioural data raises concerns around consent, privacy, and fairness. We propose a computational ethical framework for AI-driven digital phenotyping systems in which ethical requirements are formalised as deontic temporal logic constraints and overseen by a conceptual ethical agent that ensures compliance with the specified constraints. Using a case study involving financial data and mental health, we model key ethical properties and verify them using the Z3 Satisfiability Modulo Theories (SMT) solver. Results demonstrate logical consistency and show that violations of the specified ethical properties are ruled out within the formal model through counterexample-based verification. This work represents an early step toward continuous, machine-verifiable ethical checking, moving beyond retrospective compliance based on static documentation. We discuss limitations, including the need for real-world validation, challenges related to subjectivity and contextual sensitivity, and the continued importance of human oversight in delivering auditable ethical guarantees for AI systems.",
     "tags": [ "computational ethics", "digital phenotyping", "financial data", "mental health","formal verification","deontic temporal logic","Z3 solver"],
     "featured": true
+    },
+    {
+      "id": "following-the-money-financial-data-mental-health",
+      "title": "Following the Money: How Financial Data Can Transform Mental Health Research and Care",
+      "authors": [
+        "Saeed Abdullah",
+        "Mark Matthews",
+        "Jeff Brozena",
+        "Johnna Blair",
+        "Oluwadara Adedeji",
+        "Dahlia Mukherjee",
+        "Thomas Richardson",
+        "Erika F. H. Saunders"
+      ],
+      "year": 2026,
+      "venue": "Psychiatric Services",
+      "venueShort": "Psychiatric Services",
+      "type": "journal",
+      "abstract": "Money is deeply intertwined with mental health, yet financial behavior remains largely absent from mental health assessment and interventions. The authors argue that financial data represents an untapped opportunity for mental health support. Toward this vision, this article addresses three questions: Can financial behavior be measured objectively? Would patients share such data? Are there clinically meaningful signals? Recent studies involving over 1,000 individuals with bipolar disorder demonstrate feasibility through open banking, broad acceptability, and preliminary evidence linking spending to mood states. Building on these findings, the authors discuss the potential for clinical integration and interventions while outlining responsible development of this emerging field.",
+      "tags": [
+        "computer technology",
+        "psychiatric research",
+        "psychiatric assessment",
+        "economics",
+        "affective disorders",
+        "financial data",
+        "mental health"
+      ],
+      "featured": true
     }
     
 

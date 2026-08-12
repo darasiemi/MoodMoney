@@ -8,7 +8,7 @@ export function NewsTicker({ items }: NewsTickerProps) {
   const repeated = [...items, ...items];
 
   const totalChars = items.reduce((n, s) => n + s.length, 0);
-  const duration = `${Math.round((totalChars * 7) / 180)}s`;
+  const duration = `${Math.round((totalChars * 12) / 180)}s`;
 
   return (
     <div style={{ width: "100%" }}>
