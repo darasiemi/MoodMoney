@@ -49,7 +49,7 @@ export function Navbar() {
               className="object-contain shrink-0"
               style={{ height: "auto" }}
             /></span>
-            <div className="leading-tight">
+            <div className="hidden min-[400px]:block leading-tight">
               <span className="block text-base sm:text-lg font-bold text-ucd-navy dark:text-white tracking-tight">
                 Mood &amp; Money Lab
               </span>

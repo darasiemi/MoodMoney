@@ -22,11 +22,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
       href={`/research/${slug}`}
-      className={`clickable-surface group relative block min-h-80 overflow-hidden rounded-xl border border-t-4 border-[color:var(--border)] ${s.accent} bg-[color:var(--surface)] p-6 shadow-sm sm:p-7`}
+      className={`clickable-surface group relative flex min-h-0 flex-col overflow-hidden rounded-xl border border-t-4 border-[color:var(--border)] ${s.accent} bg-[color:var(--surface)] p-4 shadow-sm sm:min-h-80 sm:p-7`}
     >
 
-      <div className="flex items-start justify-between gap-4 mb-5">
-        <h3 className="text-xl sm:text-2xl font-semibold text-[color:var(--foreground)] group-hover:text-ucd-navy transition-colors leading-snug max-w-[22ch]">
+      <div className="flex flex-col items-start gap-2 mb-4 sm:flex-row sm:justify-between sm:gap-4 sm:mb-5">
+        <h3 className="text-lg sm:text-2xl font-semibold text-[color:var(--foreground)] group-hover:text-ucd-navy transition-colors leading-snug max-w-[22ch]">
           {title}
         </h3>
         <span className={`shrink-0 flex items-center gap-1.5 text-xs capitalize ${s.label}`}>
@@ -35,11 +35,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </span>
       </div>
 
-      <p className="content-copy text-base mb-8 line-clamp-3 leading-7 max-w-xl">
+      <p className="content-copy text-sm sm:text-base mb-6 line-clamp-3 leading-6 sm:leading-7 max-w-xl">
         {description}
       </p>
 
-      <div className="absolute left-6 right-6 sm:left-7 sm:right-7 bottom-6 flex items-end justify-between">
+      <div className="mt-auto flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex flex-wrap gap-1.5">
           {tags.slice(0, 3).map((tag) => (
             <Tag key={tag} label={tag} />
@@ -48,7 +48,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <span className="text-xs text-gray-400 self-center">+{tags.length - 3}</span>
           )}
         </div>
-        <div className="flex items-center gap-1.5 shrink-0 ml-2">
+        <div className="flex items-center gap-1.5 shrink-0 sm:ml-2">
           <span className="text-xs font-medium text-[color:var(--muted)]">{years}</span>
           <ArrowRight
             size={14}

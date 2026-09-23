@@ -8,10 +8,10 @@ interface FeaturedProjectsProps {
 
 export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
   return (
-    <section className="mb-20 rounded-3xl border border-ucd-navy-100 bg-ucd-navy-50/80 px-5 py-8 sm:mb-24 sm:p-8 dark:border-[color:var(--border)] dark:bg-[color:var(--surface-subtle)]">
+    <section className="-mx-5 mb-20 rounded-none border-x-0 border-y border-ucd-navy-100 bg-ucd-navy-50/80 px-5 py-8 sm:mx-0 sm:mb-24 sm:rounded-3xl sm:border sm:p-8 dark:border-[color:var(--border)] dark:bg-[color:var(--surface-subtle)]">
       <div className="flex items-end justify-between gap-6 mb-7">
-        <h2 className="text-3xl sm:text-4xl font-bold text-ucd-navy dark:text-white tracking-tight">
-          Featured Research{" "}<span className="font-normal italic text-ucd-navy-700 dark:text-ucd-navy-200">what we&apos;re working on.</span>
+        <h2 className="text-2xl sm:text-4xl font-bold text-ucd-navy dark:text-white tracking-tight">
+          Featured Research{" "}<span className="block text-lg font-normal italic text-ucd-navy-700 sm:inline sm:text-[1em] dark:text-ucd-navy-200">what we&apos;re working on.</span>
         </h2>
         <Link
           href="/research"
