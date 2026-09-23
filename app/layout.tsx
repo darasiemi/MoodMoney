@@ -5,7 +5,8 @@ import "./globals.css";
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
@@ -37,8 +38,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col" style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
         <ThemeProvider>
+          <a href="#main-content" className="skip-link">Skip to main content</a>
           <Navbar />
-          <main className="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+          <main id="main-content" className="flex-1 max-w-7xl mx-auto w-full px-5 sm:px-8 lg:px-12">
             {children}
           </main>
           <Footer />

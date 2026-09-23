@@ -34,54 +34,55 @@ export default async function ProjectPage({ params }: Props) {
   }
 
   return (
-    <div className="py-12">
+    <div className="page-shell">
       <Link
         href="/research"
-        className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white mb-8 transition-colors"
+        className="inline-flex min-h-11 items-center gap-2 rounded-md px-2 text-sm font-semibold text-ucd-navy hover:bg-[color:var(--surface-subtle)] dark:text-ucd-navy-200 mb-10 transition-colors"
       >
         <ArrowLeft size={15} />
         Back to Research
       </Link>
 
-      <div className="max-w-3xl">
+      <div>
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className="detail-intro grid lg:grid-cols-12 gap-10 lg:gap-16 mb-12">
+          <div className="lg:col-span-8">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[color:var(--foreground)] leading-tight tracking-[-0.03em] mb-6">
             {project.title}
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+          <p className="content-copy text-lg leading-8 mb-6 max-w-3xl">
             {project.description}
           </p>
 
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-4">
             {project.tags.map((tag) => (
               <Tag key={tag} label={tag} />
             ))}
-          </div>
+          </div></div>
 
-          <dl className="grid grid-cols-2 sm:grid-cols-3 gap-4 p-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm">
+          <dl className="lg:col-span-4 self-end rounded-xl border border-[color:var(--border)] border-t-4 border-t-ucd-gold bg-[color:var(--surface)] p-6 text-sm shadow-sm">
             <div>
-              <dt className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">
+              <dt className="text-xs font-semibold text-[color:var(--muted)] mb-1">
                 Status
               </dt>
-              <dd className="capitalize font-medium text-gray-900 dark:text-white">
+              <dd className="text-base font-medium capitalize text-[color:var(--foreground)] mb-5">
                 {project.status}
               </dd>
             </div>
             <div>
-              <dt className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">
+              <dt className="text-xs font-semibold text-[color:var(--muted)] mb-1">
                 Period
               </dt>
-              <dd className="font-medium text-gray-900 dark:text-white">
+              <dd className="text-base font-medium text-[color:var(--foreground)] mb-5">
                 {project.startYear}–{project.endYear ?? "present"}
               </dd>
             </div>
             {project.funding && (
-              <div className="col-span-2 sm:col-span-1">
-                <dt className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">
+              <div>
+                <dt className="text-xs font-semibold text-[color:var(--muted)] mb-1">
                   Funding
                 </dt>
-                <dd className="text-gray-700 dark:text-gray-300">
+                <dd className="text-base text-[color:var(--foreground)] mb-5">
                   {Array.isArray(project.funding)
                     ? project.funding.join(", ")
                     : project.funding}
@@ -89,11 +90,11 @@ export default async function ProjectPage({ params }: Props) {
               </div>
             )}
             {project.collaborators && project.collaborators.length > 0 && (
-              <div className="col-span-2 sm:col-span-3">
-                <dt className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">
+              <div>
+                <dt className="text-xs font-semibold text-[color:var(--muted)] mb-1">
                   Collaborators
                 </dt>
-                <dd className="text-gray-700 dark:text-gray-300">
+                <dd className="text-base text-[color:var(--foreground)]">
                   {project.collaborators.join(", ")}
                 </dd>
               </div>
@@ -102,7 +103,7 @@ export default async function ProjectPage({ params }: Props) {
         </div>
 
         {/* MDX content */}
-        <article className="prose prose-gray dark:prose-invert prose-headings:font-semibold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 max-w-none">
+        <article className="prose dark:prose-invert max-w-3xl mx-auto">
           <MDXRemote source={project.content} />
         </article>
       </div>

@@ -36,19 +36,19 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post.published) notFound();
 
   return (
-    <div className="py-12">
+    <div className="page-shell">
       <Link
         href="/blog"
-        className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white mb-8 transition-colors"
+        className="inline-flex min-h-11 items-center gap-2 rounded-md px-2 text-sm font-semibold text-ucd-navy hover:bg-[color:var(--surface-subtle)] dark:text-ucd-navy-200 mb-10 transition-colors"
       >
         <ArrowLeft size={15} />
         Back to Blog
       </Link>
 
-      <div className="max-w-2xl">
+      <div>
         {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 mb-3">
+        <div className="detail-intro max-w-5xl mb-12">
+          <div className="content-copy flex flex-wrap items-center gap-3 text-sm mb-5">
             <time dateTime={post.date}>
               {new Date(post.date).toLocaleDateString("en-GB", {
                 day: "numeric",
@@ -60,11 +60,11 @@ export default async function BlogPostPage({ params }: Props) {
             <span>{post.author}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[color:var(--foreground)] tracking-[-0.03em] mb-8 leading-tight">
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-4">
             {post.tags.map((tag) => (
               <Tag key={tag} label={tag} />
             ))}
@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* MDX content */}
-        <article className="prose prose-gray dark:prose-invert prose-headings:font-semibold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 max-w-none">
+        <article className="prose dark:prose-invert max-w-3xl mx-auto">
           <MDXRemote source={post.content} />
         </article>
       </div>

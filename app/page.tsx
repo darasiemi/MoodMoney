@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <div className="-mx-4 sm:-mx-6 lg:-mx-8 mb-6 sm:mb-10 nm-ticker-band">
+      <div className="-mx-5 sm:-mx-8 lg:-mx-12 mb-16 sm:mb-20 nm-ticker-band">
         <NewsTicker items={tickerItems} />
       </div>
       <FeaturedProjects projects={projects} />

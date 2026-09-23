@@ -25,20 +25,24 @@ export function ResearchTabs({ active = [], completed = [], underReview = [] }: 
   return (
     <div>
       {/* Tab bar */}
-      <div className="flex gap-1 border-b border-ucd-navy-100 dark:border-[#0e2155] mb-8">
+      <div role="tablist" aria-label="Research project status" className="flex gap-2 border-b border-[color:var(--border)] mb-6 overflow-x-auto">
         {TABS.map(({ key, label }) => (
           <button
             key={key}
             onClick={() => setTab(key)}
-            className={`px-5 py-2.5 text-sm font-semibold transition-colors relative ${
+            role="tab"
+            aria-selected={tab === key}
+            id={`research-tab-${key}`}
+            aria-controls="research-project-panel"
+            className={`relative min-h-11 whitespace-nowrap rounded-t-lg px-4 py-3 text-sm font-semibold transition-colors ${
               tab === key
-                ? "text-ucd-navy dark:text-white"
-                : "text-gray-500 dark:text-gray-400 hover:text-ucd-navy dark:hover:text-white"
+                ? "bg-ucd-navy-50 text-ucd-navy dark:bg-[color:var(--surface-subtle)] dark:text-white"
+                : "text-[color:var(--muted)] hover:bg-[color:var(--surface-subtle)] hover:text-ucd-navy dark:hover:text-white"
             }`}
           >
             {label}
             {tab === key && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ucd-green rounded-full" />
+              <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-ucd-navy" />
             )}
           </button>
         ))}
@@ -46,7 +50,7 @@ export function ResearchTabs({ active = [], completed = [], underReview = [] }: 
 
       {/* Project grid */}
       {projects.length > 0 ? (
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div id="research-project-panel" role="tabpanel" aria-labelledby={`research-tab-${tab}`} className="grid md:grid-cols-2 gap-5">
           {projects.map((p) => (
             <ProjectCard key={p.slug} project={p} />
           ))}

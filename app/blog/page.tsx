@@ -14,26 +14,22 @@ export default function BlogPage() {
   const posts = getAllBlogPosts();
 
   return (
-    <div className="py-12">
-      <h1 className="text-4xl font-extrabold text-ucd-navy dark:text-white mb-4 tracking-tight">
-        Blog{" "}
-        <span className="font-normal italic text-gray-400 dark:text-gray-500">&nbsp;from the lab.</span>
-      </h1>
-      <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl">
+    <div className="page-shell">
+      <header className="page-intro mb-16">
+        <div><h1 className="page-title">Blog <span className="block text-[0.48em] font-medium leading-snug tracking-normal text-[color:var(--muted)]">from the lab.</span></h1></div>
+      <p className="page-deck">
         Research updates, accessible explainers, and perspectives from the lab.
       </p>
+      </header>
 
-      <div className="space-y-5 max-w-2xl">
+      <div className="grid gap-5">
         {posts.map((post) => (
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="group relative block bg-white dark:bg-[#071030] border border-ucd-navy-100 dark:border-[#0e2155] rounded-xl p-6 hover:border-ucd-green dark:hover:border-ucd-green hover:shadow-md transition-all overflow-hidden"
+            className="clickable-surface group grid md:grid-cols-[1fr_auto] gap-5 items-start rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-sm"
           >
-            {/* Left bar — green on hover */}
-            <span className="absolute left-0 top-0 bottom-0 w-1 bg-ucd-navy group-hover:bg-ucd-green transition-colors rounded-l-xl" aria-hidden />
-
-            <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 mb-2">
+            <div><div className="content-copy flex flex-wrap items-center gap-3 text-sm mb-3">
               <time dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString("en-GB", {
                   day: "numeric",
@@ -45,21 +41,19 @@ export default function BlogPage() {
               <span>{post.author}</span>
             </div>
 
-            <h2 className="text-base font-bold text-ucd-navy dark:text-white group-hover:text-ucd-green dark:group-hover:text-ucd-green-100 transition-colors mb-2 leading-snug">
+            <h2 className="text-xl sm:text-2xl font-semibold text-[color:var(--foreground)] group-hover:text-ucd-navy transition-colors mb-4 leading-snug max-w-3xl">
               {post.title}
             </h2>
 
-            <div className="flex items-center justify-between">
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-3">
                 {post.tags.map((tag) => (
                   <Tag key={tag} label={tag} />
                 ))}
-              </div>
+              </div></div>
               <ArrowRight
-                size={15}
-                className="text-ucd-navy-200 dark:text-[#0e2155] group-hover:text-ucd-green group-hover:translate-x-0.5 transition-all shrink-0"
+                size={22}
+                className="hidden md:block mt-2 text-[color:var(--muted)] group-hover:text-ucd-navy group-hover:translate-x-1 transition-all shrink-0"
               />
-            </div>
           </Link>
         ))}
       </div>

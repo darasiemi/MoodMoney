@@ -19,19 +19,17 @@ export default function PeoplePage() {
   })).filter((s) => s.members.length > 0);
 
   return (
-    <div className="py-12">
-      <h1 className="text-4xl font-extrabold text-ucd-navy dark:text-white mb-4 tracking-tight">
-        People{" "}
-        <span className="font-normal italic text-gray-400 dark:text-gray-500">behind the research.</span>
-      </h1>
-      <div className="mb-10" />
+    <div className="page-shell">
+      <header className="page-intro !block mb-16">
+        <h1 className="page-title">People <span className="block text-[0.48em] font-medium leading-snug tracking-normal text-[color:var(--muted)]">behind the research.</span></h1>
+      </header>
 
       {sections.map(({ role, label, members }) => (
-        <section key={role} className="mb-12">
-          <h2 className="section-heading text-xl font-bold text-ucd-navy dark:text-white mb-5">
+        <section key={role} className="mb-20">
+          <h2 className="section-heading text-xl font-semibold text-[color:var(--foreground)] mb-6">
             {label}
           </h2>
-          <div className="grid sm:grid-cols-2 gap-4 items-start">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5 items-start">
             {members.map((person) => (
               <PersonCard key={person.id} person={person} />
             ))}

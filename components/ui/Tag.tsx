@@ -6,20 +6,20 @@ interface TagProps {
 export function Tag({ label, variant = "default" }: TagProps) {
   if (variant === "gold") {
     return (
-      <span className="inline-block px-2 py-0.5 text-xs bg-ucd-gold text-ucd-navy-900 font-medium rounded-full">
+      <span className="inline-block rounded-full bg-ucd-gold-100 px-2.5 py-1 text-xs font-medium text-ucd-navy-900">
         {label}
       </span>
     );
   }
   if (variant === "outline") {
     return (
-      <span className="inline-block px-2 py-0.5 text-xs border border-ucd-green-100 text-ucd-green dark:border-ucd-green/30 dark:text-ucd-green-100 rounded-full">
+      <span className="inline-block rounded-full border border-[color:var(--border)] px-2.5 py-1 text-xs font-medium text-[color:var(--muted)]">
         {label}
       </span>
     );
   }
   return (
-    <span className="inline-block px-2 py-0.5 text-xs bg-ucd-green-50 text-ucd-green dark:bg-ucd-green-100/10 dark:text-ucd-green-100 rounded-full">
+    <span className="inline-block rounded-full bg-ucd-navy-50 px-2.5 py-1 text-xs font-medium text-ucd-navy dark:bg-[color:var(--surface-subtle)] dark:text-ucd-navy-200">
       {label}
     </span>
   );

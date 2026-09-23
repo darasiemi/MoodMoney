@@ -11,15 +11,15 @@ import { Tag } from "@/components/ui/Tag";
 import type { Person } from "@/types";
 
 const ROLE_ACCENT: Partial<Record<Person["role"], string>> = {
-  pi: "border-ucd-gold",
-  phd: "border-ucd-green",
-  postdoc: "border-ucd-green",
-  msc: "border-ucd-green",
+  pi: "border-t-ucd-gold",
+  phd: "border-t-ucd-navy",
+  postdoc: "border-t-ucd-navy",
+  msc: "border-t-ucd-navy",
 };
 
 export function PersonCard({ person }: { person: Person }) {
   const [expanded, setExpanded] = useState(false);
-  const accent = ROLE_ACCENT[person.role] ?? "border-ucd-navy-100 dark:border-[#0e2155]";
+  const accent = ROLE_ACCENT[person.role] ?? "border-t-[color:var(--border)]";
 
   const links = [
     person.email && {
@@ -62,22 +62,22 @@ export function PersonCard({ person }: { person: Person }) {
 
   return (
     <div
-      className={`bg-white dark:bg-[#071030] border-2 ${accent} rounded-2xl overflow-hidden hover:shadow-lg transition-shadow`}
+      className={`overflow-hidden rounded-xl border border-t-4 border-[color:var(--border)] bg-[color:var(--surface)] shadow-sm transition-shadow hover:shadow-md ${accent}`}
     >
       {/* Card front — always visible */}
-      <div className="flex flex-col items-center text-center px-6 pt-8 pb-5">
-        {/* Avatar — large */}
+      <div className="px-6 pt-8 pb-6">
         {person.image ? (
           <Image
             src={person.image}
             alt={person.name}
-            width={240}
-            height={240}
-            className="rounded-full object-cover w-56 h-56 ring-4 ring-ucd-green/20 mb-4"
-            style={{ objectPosition: person.imagePosition ?? "center" }}
+            width={640}
+            height={640}
+            sizes="(min-width: 1280px) 30vw, (min-width: 640px) 46vw, 92vw"
+            className="object-cover w-full aspect-square rounded-lg mb-6"
+            style={{ objectPosition: person.imagePosition ?? "center 25%" }}
           />
         ) : (
-          <div className="w-56 h-56 rounded-full bg-ucd-navy flex items-center justify-center text-white text-5xl font-bold select-none ring-4 ring-ucd-green/20 mb-4">
+          <div className="w-full aspect-square rounded-lg bg-ucd-navy flex items-center justify-center text-white text-5xl font-bold select-none mb-6">
             {person.name
               .split(" ")
               .map((n) => n[0])
@@ -86,15 +86,15 @@ export function PersonCard({ person }: { person: Person }) {
           </div>
         )}
 
-        <h3 className="font-bold text-lg text-ucd-navy dark:text-white leading-tight mb-1">
+        <h3 className="text-xl font-semibold text-[color:var(--foreground)] leading-tight mb-1">
           {person.name}
         </h3>
-        <p className="text-sm text-ucd-green dark:text-ucd-green-100 font-medium mb-4">
+        <p className="text-sm text-ucd-navy dark:text-ucd-navy-200 font-medium mb-4">
           {person.roleLabel}
         </p>
 
         {/* Contact icons */}
-        <div className="flex items-center justify-center gap-3 flex-wrap mb-5">
+        <div className="flex items-center gap-3 flex-wrap mb-5">
           {links.map(({ href, icon, label, color }) => (
             <a
               key={label}
@@ -104,7 +104,7 @@ export function PersonCard({ person }: { person: Person }) {
               aria-label={label}
               onClick={(e) => e.stopPropagation()}
               style={{ color }}
-              className="transition-opacity hover:opacity-70 p-1"
+              className="flex min-h-11 min-w-11 items-center justify-center rounded-lg transition-colors hover:bg-[color:var(--surface-subtle)]"
             >
               {icon}
             </a>
@@ -115,7 +115,8 @@ export function PersonCard({ person }: { person: Person }) {
         <button
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
-          className="flex items-center gap-1.5 text-xs font-semibold text-ucd-navy-200 dark:text-[#6b80a8] hover:text-ucd-green dark:hover:text-ucd-green-100 transition-colors"
+          aria-controls={`profile-${person.id}`}
+          className="flex min-h-11 items-center gap-1.5 rounded-md px-2 text-sm font-semibold text-ucd-navy hover:bg-[color:var(--surface-subtle)] dark:text-ucd-navy-200 transition-colors"
         >
           {expanded ? "Hide profile" : "View profile"}
           <ChevronDown
@@ -127,15 +128,16 @@ export function PersonCard({ person }: { person: Person }) {
 
       {/* Expandable bio + interests */}
       <div
+        id={`profile-${person.id}`}
         className={`overflow-hidden transition-all duration-300 ${
           expanded ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-6 pb-6 border-t border-ucd-navy-100 dark:border-[#0e2155] pt-5">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+        <div className="px-6 pb-6 border-t border-[color:var(--border)] pt-5">
+          <p className="content-copy text-base mb-5 leading-7">
             {person.bio}
           </p>
-          <div className="flex flex-wrap gap-1.5 justify-center">
+          <div className="flex flex-wrap gap-2">
             {person.researchInterests.map((interest) => (
               <Tag key={interest} label={interest} variant="outline" />
             ))}

@@ -38,7 +38,7 @@ export function NewsTicker({ items }: NewsTickerProps) {
         style={{ animationDuration: duration, WebkitAnimationDuration: duration }}
       >
         {repeated.map((text, i) => (
-          <span key={i} className="nm-ticker-item">
+          <span key={i} className="nm-ticker-item" aria-hidden={i >= items.length ? true : undefined}>
             <span className="nm-ticker-bullet">•</span>
             {text}
           </span>

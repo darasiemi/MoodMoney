@@ -15,16 +15,15 @@ export default function ResearchPage() {
   const underReview = projects.filter((p) => p.status === "under review");
 
   return (
-    <div className="py-12">
-      <h1 className="text-4xl font-extrabold text-ucd-navy dark:text-white mb-4 tracking-tight">
-        Research{" "}
-        <span className="font-normal italic text-gray-400 dark:text-gray-500">at the mind–money intersection.</span>
-      </h1>
-      <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl">
+    <div className="page-shell">
+      <header className="page-intro mb-12">
+        <div><h1 className="page-title">Research <span className="block text-[0.48em] font-medium leading-snug tracking-normal text-[color:var(--muted)]">at the mind–money intersection.</span></h1></div>
+      <p className="page-deck">
         Our research combines machine learning and behavioural science to
         address the mental health crisis — with a particular focus on the
         financial dimensions of psychological wellbeing.
       </p>
+      </header>
 
       <ResearchTabs active={active} completed={completed} underReview={underReview} />
     </div>

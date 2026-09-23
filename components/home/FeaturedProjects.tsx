@@ -8,20 +8,19 @@ interface FeaturedProjectsProps {
 
 export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
   return (
-    <section className="mb-16">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-ucd-navy dark:text-white">
-          Featured Research{" "}
-          <span className="font-normal italic text-gray-400 dark:text-gray-500">what we&apos;re working on.</span>
+    <section className="mb-20 rounded-3xl border border-ucd-navy-100 bg-ucd-navy-50/80 px-5 py-8 sm:mb-24 sm:p-8 dark:border-[color:var(--border)] dark:bg-[color:var(--surface-subtle)]">
+      <div className="flex items-end justify-between gap-6 mb-7">
+        <h2 className="text-3xl sm:text-4xl font-bold text-ucd-navy dark:text-white tracking-tight">
+          Featured Research{" "}<span className="font-normal italic text-ucd-navy-700 dark:text-ucd-navy-200">what we&apos;re working on.</span>
         </h2>
         <Link
           href="/research"
-          className="text-sm font-medium text-ucd-green dark:text-ucd-green-100 hover:text-ucd-green/80 dark:hover:text-ucd-green transition-colors flex items-center gap-1"
+          className="hidden sm:block rounded-md text-sm font-semibold text-ucd-navy underline decoration-2 underline-offset-4 hover:text-ucd-navy-700 dark:text-ucd-navy-200"
         >
           All projects <span aria-hidden>&rarr;</span>
         </Link>
       </div>
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-5">
         {projects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}

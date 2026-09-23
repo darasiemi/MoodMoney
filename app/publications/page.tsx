@@ -25,21 +25,20 @@ export default function PublicationsPage() {
     .sort((a, b) => b - a);
 
   return (
-    <div className="py-12">
-      <h1 className="text-4xl font-extrabold text-ucd-navy dark:text-white mb-4 tracking-tight">
-        Publications{" "}
-        <span className="font-normal italic text-gray-400 dark:text-gray-500">our peer-reviewed work.</span>
-      </h1>
-      <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl">
+    <div className="page-shell">
+      <header className="page-intro mb-16">
+        <div><h1 className="page-title">Publications <span className="block text-[0.48em] font-medium leading-snug tracking-normal text-[color:var(--muted)]">our peer-reviewed work.</span></h1></div>
+      <p className="page-deck">
         Peer-reviewed journal articles, conference papers, and preprints from
         the lab.
       </p>
+      </header>
 
-      <div className="space-y-12">
+      <div className="space-y-16">
         {years.map((year) => (
           <section key={year}>
-            <h2 className="text-xl font-bold text-ucd-navy dark:text-white mb-4 pb-2 border-b-2 border-ucd-gold flex items-center gap-3">
-              <span className="text-ucd-gold text-2xl font-extrabold">{year}</span>
+            <h2 className="text-3xl font-bold text-[color:var(--foreground)] mb-6 pb-3 border-b border-[color:var(--border)]">
+              {year}
             </h2>
             <div className="space-y-4">
               {byYear[year].map((pub) => (

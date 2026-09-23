@@ -6,10 +6,10 @@ import { Search, X, FileText, BookOpen, Users, Newspaper } from "lucide-react";
 import type { SearchItem } from "@/app/api/search/route";
 
 const TYPE_META: Record<SearchItem["type"], { label: string; icon: React.ReactNode; color: string }> = {
-  project:     { label: "Research",    icon: <FileText size={13} />,  color: "text-ucd-green bg-ucd-green-50 dark:bg-ucd-green-100/10" },
-  publication: { label: "Publication", icon: <BookOpen size={13} />,  color: "text-ucd-blue bg-ucd-blue-50 dark:bg-ucd-blue-100/10" },
-  blog:        { label: "Blog",        icon: <Newspaper size={13} />, color: "text-ucd-gold-dark bg-ucd-gold-50 dark:bg-ucd-gold-100/10" },
-  person:      { label: "People",      icon: <Users size={13} />,     color: "text-ucd-navy bg-ucd-navy-50 dark:bg-ucd-navy-900/40" },
+  project:     { label: "Research",    icon: <FileText size={13} />,  color: "text-ucd-navy bg-ucd-navy-50 dark:bg-ucd-navy-900/40 dark:text-ucd-navy-200" },
+  publication: { label: "Publication", icon: <BookOpen size={13} />,  color: "text-ucd-navy bg-ucd-navy-50 dark:bg-ucd-navy-900/40 dark:text-ucd-navy-200" },
+  blog:        { label: "Blog",        icon: <Newspaper size={13} />, color: "text-ucd-navy bg-ucd-navy-50 dark:bg-ucd-navy-900/40 dark:text-ucd-navy-200" },
+  person:      { label: "People",      icon: <Users size={13} />,     color: "text-ucd-navy bg-ucd-navy-50 dark:bg-ucd-navy-900/40 dark:text-ucd-navy-200" },
 };
 
 export function SearchModal() {
@@ -22,6 +22,7 @@ export function SearchModal() {
   // Fetch search index once when modal opens
   useEffect(() => {
     if (!open || items.length > 0) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
     fetch("/api/search")
       .then((r) => r.json())
@@ -67,7 +68,7 @@ export function SearchModal() {
       <button
         onClick={() => setOpen(true)}
         aria-label="Search"
-        className="p-2 rounded-md text-ucd-navy dark:text-gray-300 hover:bg-ucd-navy-50 dark:hover:bg-[#0e2155] transition-colors"
+        className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-ucd-navy transition-colors hover:bg-[color:var(--surface-subtle)] dark:text-gray-200"
       >
         <Search size={18} />
       </button>
@@ -75,33 +76,37 @@ export function SearchModal() {
       {/* Modal overlay */}
       {open && (
         <div
-          className="fixed inset-0 z-[100] flex items-start justify-center pt-24 px-4"
+          className="fixed inset-0 z-[100] flex items-start justify-center px-5 pt-20 sm:pt-24"
           onClick={close}
         >
           {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" aria-hidden />
+          <div className="absolute inset-0 bg-ucd-navy/65" aria-hidden />
 
           {/* Panel */}
           <div
-            className="relative w-full max-w-xl bg-white dark:bg-[#071030] rounded-2xl shadow-2xl border border-ucd-navy-100 dark:border-[#0e2155] overflow-hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site search"
+            className="relative w-full max-w-2xl overflow-hidden rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Input row */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-ucd-navy-100 dark:border-[#0e2155]">
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-[color:var(--border)]">
               <Search size={18} className="text-gray-400 shrink-0" />
               <input
                 ref={inputRef}
+                aria-label="Search the site"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search research, publications, blog, people…"
-                className="flex-1 bg-transparent text-sm text-ucd-navy dark:text-white placeholder-gray-400 outline-none"
+                className="flex-1 bg-transparent text-base text-[color:var(--foreground)] placeholder:text-[color:var(--muted)] outline-none"
               />
               {query && (
-                <button onClick={() => setQuery("")} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+                <button onClick={() => setQuery("")} aria-label="Clear search" className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-[color:var(--muted)] hover:bg-[color:var(--surface-subtle)] hover:text-[color:var(--foreground)]">
                   <X size={16} />
                 </button>
               )}
-              <kbd className="hidden sm:inline text-[10px] text-gray-400 border border-gray-200 dark:border-[#0e2155] rounded px-1.5 py-0.5 font-mono">
+              <kbd className="hidden sm:inline text-xs text-[color:var(--muted)] border border-[color:var(--border)] rounded px-2 py-1 font-mono">
                 Esc
               </kbd>
             </div>
@@ -127,14 +132,14 @@ export function SearchModal() {
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
                     onClick={close}
-                    className="flex items-start gap-3 px-4 py-3 hover:bg-ucd-navy-50 dark:hover:bg-[#0e2155] transition-colors border-b border-ucd-navy-50 dark:border-[#0e2155]/50 last:border-0"
+                    className="group flex items-start gap-3 px-5 py-4 hover:bg-ucd-navy-50 dark:hover:bg-[color:var(--surface-subtle)] transition-colors border-b border-[color:var(--border)] last:border-0"
                   >
-                    <span className={`inline-flex items-center gap-1 text-[11px] font-semibold px-1.5 py-0.5 rounded shrink-0 mt-0.5 ${meta.color}`}>
+                    <span className={`inline-flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-md shrink-0 mt-0.5 ${meta.color}`}>
                       {meta.icon} {meta.label}
                     </span>
                     <div className="min-w-0">
-                      <p className="text-sm font-semibold text-ucd-navy dark:text-white truncate">{item.title}</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-1 mt-0.5">{item.description}</p>
+                      <p className="text-base font-semibold text-[color:var(--foreground)] truncate">{item.title}</p>
+                      <p className="content-copy text-sm line-clamp-1 mt-0.5">{item.description}</p>
                     </div>
                   </Link>
                 );

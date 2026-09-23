@@ -8,6 +8,7 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
   if (!mounted) return <div className="w-9 h-9" />;
 
@@ -15,7 +16,7 @@ export function ThemeToggle() {
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       aria-label="Toggle dark mode"
-      className="p-2 rounded-md text-ucd-navy-700 hover:text-ucd-navy dark:text-ucd-navy-200 dark:hover:text-white hover:bg-ucd-navy-50 dark:hover:bg-[#0e2155] transition-colors"
+      className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-ucd-navy-700 transition-colors hover:bg-[color:var(--surface-subtle)] dark:text-ucd-navy-200"
     >
       {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
     </button>

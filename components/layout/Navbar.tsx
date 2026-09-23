@@ -34,51 +34,60 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 dark:bg-[#030c22]/95 backdrop-blur-sm border-b border-ucd-navy-100 dark:border-[#0e2155] shadow-sm">
-      {/* UCD gold brand strip */}
-      <div className="h-1 bg-ucd-gold w-full" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-15 py-3">
+    <header className="sticky top-0 z-50 border-b border-[color:var(--border)] bg-[color:var(--surface)]/95 backdrop-blur-md">
+      <div className="h-1 bg-ucd-gold" />
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="flex min-h-20 items-center justify-between py-3">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="group flex items-center gap-3 rounded-md">
+            <span className="block">
             <Image
               src="/ucd-logo.svg"
               alt="University College Dublin"
-              width={40}
-              height={58}
+              width={34}
+              height={49}
               className="object-contain shrink-0"
               style={{ height: "auto" }}
-            />
+            /></span>
             <div className="leading-tight">
-              <span className="block text-sm font-bold text-ucd-navy dark:text-white tracking-tight">
+              <span className="block text-base sm:text-lg font-bold text-ucd-navy dark:text-white tracking-tight">
                 Mood &amp; Money Lab
               </span>
-              <span className="hidden sm:block text-[10px] text-ucd-navy-700 dark:text-ucd-navy-200 tracking-wide uppercase font-medium" style={{ fontFamily: "var(--font-montserrat)" }}>
+              <span className="hidden sm:block text-xs text-[color:var(--muted)] font-medium">
                 University College Dublin
               </span>
             </div>
           </Link>
 
-          {/* Right side — search, theme, hamburger */}
+          <nav className="hidden lg:flex items-center gap-1 ml-auto mr-4" aria-label="Primary navigation">
+            {NAV_LINKS.map(({ href, label }) => {
+              const active = pathname === href || (href !== "/" && pathname.startsWith(href));
+              return (
+                <Link key={href} href={href} aria-current={active ? "page" : undefined} className={`relative rounded-md px-3 py-2 text-sm font-medium transition-colors ${active ? "bg-ucd-navy-50 text-ucd-navy dark:bg-[color:var(--surface-subtle)] dark:text-white" : "text-[color:var(--foreground)] hover:bg-[color:var(--surface-subtle)] hover:text-ucd-navy dark:hover:text-white"}`}>
+                  {label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Right side — search, theme, mobile menu */}
           <div className="flex items-center gap-1">
             <SearchModal />
             <ThemeToggle />
 
-            {/* Hamburger — always visible */}
-            <div className="relative" ref={menuRef}>
+            <div className="relative lg:hidden" ref={menuRef}>
               <button
                 onClick={() => setOpen(!open)}
                 aria-label="Toggle menu"
                 aria-expanded={open}
-                className="p-2 rounded-md text-ucd-navy dark:text-gray-300 hover:bg-ucd-navy-50 dark:hover:bg-[#0e2155] transition-colors"
+                className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-ucd-navy transition-colors hover:bg-[color:var(--surface-subtle)] dark:text-gray-200"
               >
                 {open ? <X size={20} /> : <Menu size={20} />}
               </button>
 
               {/* Dropdown menu */}
               {open && (
-                <div className="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-[#071030] border border-ucd-navy-100 dark:border-[#0e2155] rounded-xl shadow-lg overflow-hidden">
+                <nav aria-label="Mobile navigation" className="absolute right-0 top-full mt-3 w-64 overflow-hidden rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] p-2 shadow-lg">
                   {NAV_LINKS.map(({ href, label }) => {
                     const active = pathname === href;
                     return (
@@ -86,19 +95,18 @@ export function Navbar() {
                         key={href}
                         href={href}
                         onClick={() => setOpen(false)}
-                        style={{ fontFamily: "var(--font-montserrat)" }}
-                        className={`flex items-center gap-2 px-4 py-3 text-sm border-b border-ucd-navy-50 dark:border-[#0e2155] last:border-0 transition-colors ${
+                        aria-current={active ? "page" : undefined}
+                        className={`flex min-h-11 items-center rounded-lg px-4 py-3 text-sm transition-colors ${
                           active
-                            ? "text-ucd-navy dark:text-white font-semibold bg-ucd-navy-50 dark:bg-[#0e2155]"
-                            : "text-gray-600 dark:text-gray-400 hover:bg-ucd-navy-50 dark:hover:bg-[#0e2155] hover:text-ucd-navy dark:hover:text-white"
+                            ? "bg-ucd-navy-50 text-ucd-navy font-semibold dark:bg-[color:var(--surface-subtle)] dark:text-white"
+                            : "text-[color:var(--foreground)] hover:bg-[color:var(--surface-subtle)]"
                         }`}
                       >
-                        {active && <span className="w-1 h-4 bg-ucd-green rounded-full shrink-0" />}
                         {label}
                       </Link>
                     );
                   })}
-                </div>
+                </nav>
               )}
             </div>
           </div>
