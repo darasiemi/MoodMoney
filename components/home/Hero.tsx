@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import financialMoodImage from "@/public/images/financial-mood.png";
 
 export function Hero() {
   return (
@@ -56,13 +57,12 @@ export function Hero() {
 
         <div className="hero-pattern relative flex items-center justify-center overflow-hidden p-2 sm:p-4 lg:col-span-7 lg:p-5">
           <Image
-            src="/images/financial-mood.png"
+            src={financialMoodImage}
             alt="Financial behaviour and mental health illustration"
-            width={1536}
-            height={1024}
             sizes="(min-width: 1024px) 58vw, 100vw"
             className="relative w-full h-auto rounded-xl object-contain"
-            priority
+            placeholder="blur"
+            preload
           />
         </div>
       </div>

@@ -17,6 +17,9 @@ const ROLE_ACCENT: Partial<Record<Person["role"], string>> = {
   msc: "border-t-ucd-navy",
 };
 
+const PORTRAIT_PLACEHOLDER =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23e8edf7'/%3E%3C/svg%3E";
+
 export function PersonCard({ person }: { person: Person }) {
   const [expanded, setExpanded] = useState(false);
   const accent = ROLE_ACCENT[person.role] ?? "border-t-[color:var(--border)]";
@@ -75,6 +78,9 @@ export function PersonCard({ person }: { person: Person }) {
             sizes="(min-width: 1280px) 30vw, (min-width: 640px) 46vw, 92vw"
             className="object-cover w-full aspect-square rounded-lg mb-6"
             style={{ objectPosition: person.imagePosition ?? "center 25%" }}
+            placeholder="blur"
+            blurDataURL={PORTRAIT_PLACEHOLDER}
+            preload={person.role === "pi"}
           />
         ) : (
           <div className="w-full aspect-square rounded-lg bg-ucd-navy flex items-center justify-center text-white text-5xl font-bold select-none mb-6">
