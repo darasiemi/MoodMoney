@@ -48,7 +48,7 @@
 
 /* ── CSS Variables for theme switching ───────────────────────────── */
 :root {
-  color-scheme: light;
+  color-scheme: only light;
   --background: #f6f8fb;
   --surface:    #ffffff;
   --surface-subtle: #edf2f7;
@@ -58,7 +58,11 @@
   --focus:      #005ea8;
 }
 
-.dark {
+:root.light {
+  color-scheme: only light;
+}
+
+:root.dark {
   color-scheme: dark;
   --background: #071321;
   --surface:    #0d1d31;
@@ -76,10 +80,14 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 ::selection {

@@ -36,10 +36,10 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-[color:var(--border)] bg-[color:var(--surface)]/95 backdrop-blur-md">
       <div className="h-1 bg-ucd-gold" />
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="flex min-h-20 items-center justify-between py-3">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
+        <div className="flex min-h-16 items-center justify-between gap-2 py-2 sm:min-h-20 sm:py-3">
           {/* Logo */}
-          <Link href="/" className="group flex items-center gap-3 rounded-md">
+          <Link href="/" className="group flex min-w-0 items-center gap-2 rounded-md sm:gap-3">
             <span className="block">
             <Image
               src="/ucd-logo.svg"
@@ -49,7 +49,7 @@ export function Navbar() {
               className="object-contain shrink-0"
               style={{ height: "auto" }}
             /></span>
-            <div className="hidden min-[400px]:block leading-tight">
+            <div className="hidden min-w-0 min-[420px]:block leading-tight">
               <span className="block text-base sm:text-lg font-bold text-ucd-navy dark:text-white tracking-tight">
                 Mood &amp; Money Lab
               </span>
@@ -71,7 +71,7 @@ export function Navbar() {
           </nav>
 
           {/* Right side — search, theme, mobile menu */}
-          <div className="flex items-center gap-1">
+          <div className="flex shrink-0 items-center gap-0.5 sm:gap-1">
             <SearchModal />
             <ThemeToggle />
 

@@ -5,7 +5,14 @@ import type { ReactNode } from "react";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   return (
-    <NextThemesProvider attribute="class" defaultTheme="light" enableSystem={false}>
+    <NextThemesProvider
+      attribute="class"
+      defaultTheme="light"
+      enableSystem={false}
+      enableColorScheme={false}
+      disableTransitionOnChange
+      storageKey="mood-money-theme"
+    >
       {children}
     </NextThemesProvider>
   );
