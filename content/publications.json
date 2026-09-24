@@ -6,6 +6,7 @@
     "venue": "Frontiers in Public Health",
     "venueShort": "Frontiers in Public Health",
     "type": "journal",
+    "doi": "10.3389/fpubh.2026.1812845",
     "abstract": "The relationship between financial circumstances and mental health is well-established. New financial data sources such as bank transactions and digital payments offer new opportunities to better characterise this relationship. However, the prior financial data sources and analytical approaches have not been systematically reviewed. Understanding these is essential to guide future research and inform integrated interventions that address both financial and mental health outcomes. This scoping review systematically maps the research on money and mental health, examining: (1) the financial variables and data sources used, (2) modeling methods employed, and (3) methodological gaps that novel objective data might address. We systematically searched PubMed, PsycINFO, IEEE Xplore, ACM Digital Library, and Scopus. Papers were screened against predefined inclusion/exclusion criteria, and data extracted using a standardized spreadsheet. Analysis employed deductive coding guided by our research questions, refined iteratively through engagement with the data. PRISMA Extension for Scoping Reviews (PRISMA-ScR) was followed for reporting. Of the 43 included studies, most (n = 34, 79%) examined mental health in connection with financial factors such as financial difficulty or financial strain, while a small number focused on predictive modeling with financial behavioral data (n = 5, 12%), macroeconomic indicators (n = 2, 5%), or intergenerational support between parent and child (n = 2, 5%). Depression was the most common outcome (n = 24, 56%), followed by anxiety, psychological distress, and bipolar disorder. Statistical methods dominated (77%), with 19% employing machine learning or deep learning. Ground truths relied predominantly on self-reported questionnaires—only four studies used objective financial data (three gambling records, one bank transaction). This review reinforces the complex, bidirectional relationship between financial circumstances and mental health. Most studies examined how financial difficulty affects mental health, while only a few explored how mental illness influences financial behavior, indicating a clear research gap. There is substantial opportunity to use objective financial data and more diverse analytical methods, particularly machine learning, to deepen understanding of the relationship and interactions between money and mental health and inform targeted interventions.",
     "tags": ["mental health", "mental wellbeing", "machine learning","statistical analysis","finance","money","finhealth"],
     "featured": true
@@ -31,7 +32,7 @@
     "venueShort": "CHI 2025",
     "type": "conference",
     "abstract": "Symptomatic financial behavior in bipolar disorder can increase stress, worsen symptoms, and hinder recovery. While spending sprees signal high mood states, research on personal experiences remains limited. This study explores mood-spending dynamics through semi-structured interviews in Ireland and Nigeria (N=5, projected N=10), assessing geo-economic influences and data-sharing preferences for future research. Participants reported varied impulsive spending patterns and emphasized privacy, security, and transparency in financial data sharing. These findings highlight the need for protective financial technologies for vulnerable individuals",
-    "pdf": "https://www.researchgate.net/profile/Oluwadara-Adedeji/publication/400250534_Money_and_Mental_Health_Spending_as_a_Mental_Health_Indicator_-_Psychological_Behavioral_Economic_Perspectives_and_Data_Collection/links/697c933dca66ef6ab98e903b/Money-and-Mental-Health-Spending-as-a-Mental-Health-Indicator-Psychological-Behavioral-Economic-Perspectives-and-Data-Collection.pdf",
+    "pdf": "https://chi2025-money.github.io/assets/files/12-Adedeji_et_al.pdf",
     "tags": ["bipolar disorder", "financial behaviour", "financial technologies", "data collection"],
     "featured": true
   },
@@ -58,8 +59,9 @@
     "venueShort": "CHI 2024",
     "type": "conference",
     "abstract": "Financial stability is a key challenge for individuals living with bipolar disorder (BD). Symptomatic periods in BD are associated with poor financial decision-making, contributing to a negative cycle of worsening symptoms and an increased risk of bankruptcy. There has been an increased focus on designing supportive financial technologies (fintech) to address varying and intermittent needs across different stages of BD. However, little is known about this population’s expectations and privacy preferences related to financial data sharing for longitudinal care management. To address this knowledge gap, we have deployed a factorial vignette survey using the Contextual Integrity framework. Our data from individuals with BD (N=480) shows that they are open to sharing financial data for long term care management. We have also identified significant differences in sharing preferences across age, gender, and diagnostic subtype. We discuss the implications of these findings in designing equitable fintech to support this marginalized community.",
-    "doi": "10.1145/3613904.364264",
-    "pdf": "https://dl.acm.org/doi/pdf/10.1145/3613904.3642645",
+    "doi": "10.1145/3613904.3642645",
+    "arxiv": "2306.15725",
+    "pdf": "https://arxiv.org/pdf/2306.15725",
     "tags": ["Financial technologies", "fintech", "privacy", "mental health", "bipolar disorder"],
     "featured": false
   },
@@ -72,7 +74,7 @@
     "venueShort": "CHI 2025",
     "type": "conference",
     "doi":"10.1145/3706599.3706711",
-    "pdf": "https://dl.acm.org/doi/epdf/10.1145/3706599.3706711",
+    "pdf": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/531171224/BlairEtalCHIEA2025FutureofMoneyandHCI.pdf",
     "abstract": "Money and financial activities reflect social connections and societal norms. Collaborative financial activities and decision-making are highly common in our day-to-day activities. However, existing financial technologies (fintech) are often limited to individual-centric approaches and goals. Recent HCI work has repeatedly noted the need for creating new interaction strategies and design paradigms to better support our financial behaviors, habits, and goals. However, there has not been much concrete work yet, specifically when it comes to supporting collaborative behaviors and social norms that underpin much of our daily financial activities. In this in-person workshop, we will bring together an interdisciplinary group of researchers interested in reshaping the current landscape of digital money and fintech with a focus on social and collaborative interactions. Specifically, we will identify limitations of existing fintech approaches and potential strategies to address these limitations. We will also discuss key challenges for fintech design and development, including collaboration, privacy, agency, trust, and accessibility. The workshop will lead to identifying novel HCI research and implementation directions focusing on the future of financial technologies.",
     "tags": ["Human-centred feature computig","collaborative and social computing", "empirical studies in HCI", "applied computing"],
     "featured": false
@@ -89,7 +91,7 @@
     "venue": "In European Conference on Multi-Agent Systems. Springer Nature Switzerland.",
     "venueShort": "Springer Nature",
     "type": "journal",
-    "doi": "10.1145/3706599.3706711",
+    "doi": "10.1007/978-3-031-93930-3_24",
     "pdf": "https://link.springer.com/chapter/10.1007/978-3-031-93930-3_24",
     "abstract": "Information is essential to delivering effective healthcare. Health information traditionally resides with the entity providing healthcare to the patient. However, this is just one model for how information can be situated within a healthcare context. Decentralized health networks provide the infrastructure to realize a different information and computational model that centers the locus of health information around the patients. In this paper, we present a framework for building and testing decentralized health networks that enable patients to share their data with a communal network to gain value derived from aggregated data. While decentralized networks disperse control of health information among a network of individuals, they require careful design and testing to ensure the network’s incentives promote the interests of each member, scale cost-effectively, and protect privacy. Deploying a decentralized health network without appropriate testing presents multiple risks, including the risk of data breach, erroneous machine learning model predictions, and costly platform management. To counter these risks, we demonstrate how multi-agent-based evaluation can be central to testing and refining patient-centered decentralized health networks such that the incentives are robust, sustainable, and less susceptible to exploitation. We find that agent-based approaches can help speed up development and build confidence in scalability, safety, and effective functioning prior to real-world deployment. We also provide design recommendations and suggestions for future work.",
     "tags": [
@@ -117,6 +119,7 @@
     "authors": ["Thomas Richardson", "Johnna Blair", "Jeff Brozena", "Mark Matthews", "Saeed Abdullah"],
     "year": 2023,
     "type": "presentation",
+    "doi": "10.1111/bdi.13332",
     "pdf": "https://www.researchgate.net/publication/371957435_Impulsive_Spending_and_Finance_Management_in_Bipolar_Disorder_Technology_as_both_a_Problem_and_Potential_Solution",
     "tags": ["Bipolar disorder","Data preference", "Digital phenotyping"],
     "featured": false
@@ -129,6 +132,7 @@
     "venue": "In Proceedings of the International Conference on Computational Intelligence Methods for Bioinformatics and Biostatistics (CIBB 2026)",
     "venueShort": "CIBB 2026",
     "type": "conference",
+    "arxiv": "2607.24275",
     "abstract": "Ethical governance of AI-driven systems is often expressed through high-level principles and static documentation, creating a gap between regulatory requirements and system-level verification. This challenge is particularly acute in digital phenotyping, where continuous behavioural data raises concerns around consent, privacy, and fairness. We propose a computational ethical framework for AI-driven digital phenotyping systems in which ethical requirements are formalised as deontic temporal logic constraints and overseen by a conceptual ethical agent that ensures compliance with the specified constraints. Using a case study involving financial data and mental health, we model key ethical properties and verify them using the Z3 Satisfiability Modulo Theories (SMT) solver. Results demonstrate logical consistency and show that violations of the specified ethical properties are ruled out within the formal model through counterexample-based verification. This work represents an early step toward continuous, machine-verifiable ethical checking, moving beyond retrospective compliance based on static documentation. We discuss limitations, including the need for real-world validation, challenges related to subjectivity and contextual sensitivity, and the continued importance of human oversight in delivering auditable ethical guarantees for AI systems.",
     "tags": [ "computational ethics", "digital phenotyping", "financial data", "mental health","formal verification","deontic temporal logic","Z3 solver"],
     "featured": true

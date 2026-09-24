@@ -18,14 +18,29 @@ export function PublicationCard({ pub }: PublicationCardProps) {
     pub.authors.length > 4
       ? `${pub.authors.slice(0, 3).join(", ")}, et al.`
       : pub.authors.join(", ");
+  const publicationHref = pub.pdf
+    ?? (pub.arxiv ? `https://arxiv.org/abs/${pub.arxiv}` : undefined)
+    ?? (pub.doi ? `https://doi.org/${pub.doi}` : undefined);
 
   return (
-    <article className="group relative rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] p-5 shadow-sm transition-shadow hover:shadow-md sm:p-6">
+    <article className={`relative rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] p-5 shadow-sm transition-shadow sm:p-6 ${publicationHref ? "group hover:shadow-md" : ""}`}>
 
       <div className="flex flex-col items-start gap-3 mb-3 sm:flex-row sm:gap-4">
         <div className="flex-1 min-w-0">
-          <h3 className="text-lg sm:text-xl font-semibold text-[color:var(--foreground)] leading-snug mb-2 group-hover:text-ucd-navy transition-colors">
-            {pub.title}
+          <h3 className="mb-2 text-lg font-semibold leading-snug text-[color:var(--foreground)] transition-colors group-hover:text-ucd-navy sm:text-xl">
+            {publicationHref ? (
+              <a
+                href={publicationHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-sm after:absolute after:inset-0 after:rounded-xl focus:outline-none focus-visible:after:ring-2 focus-visible:after:ring-ucd-blue focus-visible:after:ring-offset-2"
+                aria-label={`Read ${pub.title} (opens in a new tab)`}
+              >
+                {pub.title}
+              </a>
+            ) : (
+              pub.title
+            )}
           </h3>
           <p className="content-copy text-sm">{authorsDisplay}</p>
         </div>
@@ -52,7 +67,7 @@ export function PublicationCard({ pub }: PublicationCardProps) {
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="relative z-10 flex items-center gap-4">
           {pub.doi && (
             <a
               href={`https://doi.org/${pub.doi}`}
