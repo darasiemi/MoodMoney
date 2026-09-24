@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import financialMoodImage from "@/public/images/financial-mood.png";
+import financialMoodImage from "@/public/images/financial-mood.webp";
 
 export function Hero() {
   return (
