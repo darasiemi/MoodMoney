@@ -48,9 +48,17 @@ export function RecentNews({ publications, posts, news }: RecentNewsProps) {
       {/* Recent blog posts */}
       {posts.length > 0 && (
         <div className="mb-12">
-          <h3 className="text-lg font-semibold text-ucd-navy dark:text-white mb-4">
-            Latest from the blog
-          </h3>
+          <div className="mb-4 flex items-center justify-between gap-4">
+            <h3 className="text-lg font-semibold text-ucd-navy dark:text-white">
+              Latest from the blog
+            </h3>
+            <Link
+              href="/blog"
+              className="shrink-0 text-sm font-semibold text-ucd-navy underline decoration-2 underline-offset-4 transition-colors hover:text-ucd-navy-700 dark:text-ucd-navy-200"
+            >
+              All blog posts <span aria-hidden>&rarr;</span>
+            </Link>
+          </div>
           <div className="grid sm:grid-cols-2 gap-4">
             {posts.slice(0, 2).map((post) => (
               <Link
