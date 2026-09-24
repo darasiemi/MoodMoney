@@ -60,29 +60,31 @@ export default async function ProjectPage({ params }: Props) {
             ))}
           </div></div>
 
-          <dl className="lg:col-span-4 self-end rounded-xl border border-[color:var(--border)] border-t-4 border-t-ucd-gold bg-[color:var(--surface)] p-6 text-sm shadow-sm">
-            <div>
-              <dt className="text-xs font-semibold text-[color:var(--muted)] mb-1">
+          <dl className="self-end divide-y divide-ucd-navy-100 rounded-xl border-2 border-ucd-navy border-t-4 border-t-ucd-gold bg-white px-6 shadow-[0_10px_24px_rgba(0,48,135,0.14)] dark:divide-[#2b4c76] dark:border-ucd-navy-200 dark:border-t-ucd-gold dark:bg-ucd-navy-900 lg:col-span-4">
+            <div className="py-4 first:pt-5">
+              <dt className="mb-1.5 text-xs font-bold uppercase tracking-[0.08em] text-ucd-navy-700 dark:text-ucd-navy-200">
                 Status
               </dt>
-              <dd className="text-base font-medium capitalize text-[color:var(--foreground)] mb-5">
-                {project.status}
+              <dd>
+                <span className="inline-flex rounded-full bg-ucd-green-100 px-3 py-1 text-sm font-bold capitalize text-ucd-green dark:bg-ucd-green/25 dark:text-[#b9e4c0]">
+                  {project.status}
+                </span>
               </dd>
             </div>
-            <div>
-              <dt className="text-xs font-semibold text-[color:var(--muted)] mb-1">
+            <div className="py-4">
+              <dt className="mb-1.5 text-xs font-bold uppercase tracking-[0.08em] text-ucd-navy-700 dark:text-ucd-navy-200">
                 Period
               </dt>
-              <dd className="text-base font-medium text-[color:var(--foreground)] mb-5">
+              <dd className="text-base font-bold text-ucd-navy-900 dark:text-white">
                 {project.startYear}–{project.endYear ?? "present"}
               </dd>
             </div>
             {project.funding && (
-              <div>
-                <dt className="text-xs font-semibold text-[color:var(--muted)] mb-1">
+              <div className="py-4 last:pb-5">
+                <dt className="mb-1.5 text-xs font-bold uppercase tracking-[0.08em] text-ucd-navy-700 dark:text-ucd-navy-200">
                   Funding
                 </dt>
-                <dd className="text-base text-[color:var(--foreground)] mb-5">
+                <dd className="break-words text-base font-semibold leading-6 text-ucd-navy-900 dark:text-white">
                   {Array.isArray(project.funding)
                     ? project.funding.join(", ")
                     : project.funding}
@@ -90,11 +92,11 @@ export default async function ProjectPage({ params }: Props) {
               </div>
             )}
             {project.collaborators && project.collaborators.length > 0 && (
-              <div>
-                <dt className="text-xs font-semibold text-[color:var(--muted)] mb-1">
+              <div className="py-4 last:pb-5">
+                <dt className="mb-1.5 text-xs font-bold uppercase tracking-[0.08em] text-ucd-navy-700 dark:text-ucd-navy-200">
                   Collaborators
                 </dt>
-                <dd className="text-base text-[color:var(--foreground)]">
+                <dd className="break-words text-base font-semibold leading-6 text-ucd-navy-900 dark:text-white">
                   {project.collaborators.join(", ")}
                 </dd>
               </div>
