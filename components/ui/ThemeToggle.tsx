@@ -4,12 +4,39 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 
+function syncBrowserTheme(isDark: boolean) {
+  const colorScheme = isDark ? "dark" : "only light";
+  const themeColor = isDark ? "#071321" : "#f6f8fb";
+
+  document.documentElement.style.colorScheme = colorScheme;
+
+  let colorSchemeMeta = document.querySelector<HTMLMetaElement>(
+    'meta[name="color-scheme"]',
+  );
+  if (!colorSchemeMeta) {
+    colorSchemeMeta = document.createElement("meta");
+    colorSchemeMeta.name = "color-scheme";
+    document.head.prepend(colorSchemeMeta);
+  }
+  colorSchemeMeta.content = colorScheme;
+
+  const themeColorMeta = document.querySelector<HTMLMetaElement>(
+    'meta[name="theme-color"]',
+  );
+  themeColorMeta?.setAttribute("content", themeColor);
+}
+
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    if (resolvedTheme) syncBrowserTheme(resolvedTheme === "dark");
+  }, [resolvedTheme]);
+
   if (!mounted) return <div className="h-11 w-11" aria-hidden />;
 
   const isDark = resolvedTheme === "dark";
@@ -21,7 +48,7 @@ export function ThemeToggle() {
     // for the provider's storage update to complete.
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(nextTheme);
-    document.documentElement.style.colorScheme = nextTheme === "light" ? "only light" : "dark";
+    syncBrowserTheme(nextTheme === "dark");
     setTheme(nextTheme);
   }
 

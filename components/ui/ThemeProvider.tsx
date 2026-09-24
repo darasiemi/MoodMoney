@@ -12,6 +12,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       enableColorScheme={false}
       disableTransitionOnChange
       storageKey="mood-money-theme"
+      themes={["light", "dark"]}
     >
       {children}
     </NextThemesProvider>
