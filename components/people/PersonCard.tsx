@@ -75,7 +75,7 @@ export function PersonCard({ person }: { person: Person }) {
             alt={person.name}
             width={640}
             height={640}
-            sizes="(min-width: 1280px) 30vw, (min-width: 640px) 46vw, 92vw"
+            sizes="(min-width: 1280px) 394px, (min-width: 640px) calc(50vw - 42px), calc(100vw - 32px)"
             className="object-cover w-full aspect-square rounded-lg mb-6"
             style={{ objectPosition: person.imagePosition ?? "center 25%" }}
             placeholder="blur"
