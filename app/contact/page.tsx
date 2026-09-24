@@ -10,12 +10,8 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="page-shell">
-      <header className="page-intro mb-16">
-        <div><h1 className="page-title">Contact Us <span className="block text-[0.48em] font-medium leading-snug tracking-normal text-[color:var(--muted)]">we&apos;d love to hear from you.</span></h1></div>
-      <p className="page-deck">
-        We welcome enquiries from prospective collaborators, PhD applicants,
-        journalists, and anyone interested in our research.
-      </p>
+      <header className="page-intro !block mb-16">
+        <h1 className="page-title">Contact Us <span className="block text-[0.48em] font-medium leading-snug tracking-normal text-[color:var(--muted)]">we&apos;d love to hear from you.</span></h1>
       </header>
 
       <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">

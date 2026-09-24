@@ -26,12 +26,8 @@ export default function PublicationsPage() {
 
   return (
     <div className="page-shell">
-      <header className="page-intro mb-16">
-        <div><h1 className="page-title">Publications <span className="block text-[0.48em] font-medium leading-snug tracking-normal text-[color:var(--muted)]">our peer-reviewed work.</span></h1></div>
-      <p className="page-deck">
-        Peer-reviewed journal articles, conference papers, and preprints from
-        the lab.
-      </p>
+      <header className="page-intro !block mb-16">
+        <h1 className="page-title">Publications <span className="block text-[0.48em] font-medium leading-snug tracking-normal text-[color:var(--muted)]">our peer-reviewed work.</span></h1>
       </header>
 
       <div className="space-y-16">

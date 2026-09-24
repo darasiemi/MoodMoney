@@ -16,13 +16,8 @@ export default function ResearchPage() {
 
   return (
     <div className="page-shell">
-      <header className="page-intro mb-12">
-        <div><h1 className="page-title">Research <span className="block text-[0.48em] font-medium leading-snug tracking-normal text-[color:var(--muted)]">at the mind–money intersection.</span></h1></div>
-      <p className="page-deck">
-        Our research combines machine learning and behavioural science to
-        address the mental health crisis — with a particular focus on the
-        financial dimensions of psychological wellbeing.
-      </p>
+      <header className="page-intro !block mb-12">
+        <h1 className="page-title">Research <span className="block text-[0.48em] font-medium leading-snug tracking-normal text-[color:var(--muted)]">at the mind–money intersection.</span></h1>
       </header>
 
       <ResearchTabs active={active} completed={completed} underReview={underReview} />

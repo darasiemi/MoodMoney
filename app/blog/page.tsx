@@ -15,11 +15,8 @@ export default function BlogPage() {
 
   return (
     <div className="page-shell">
-      <header className="page-intro mb-16">
-        <div><h1 className="page-title">Blog <span className="block text-[0.48em] font-medium leading-snug tracking-normal text-[color:var(--muted)]">from the lab.</span></h1></div>
-      <p className="page-deck">
-        Research updates, accessible explainers, and perspectives from the lab.
-      </p>
+      <header className="page-intro !block mb-16">
+        <h1 className="page-title">Blog <span className="block text-[0.48em] font-medium leading-snug tracking-normal text-[color:var(--muted)]">from the lab.</span></h1>
       </header>
 
       <div className="grid gap-5">
