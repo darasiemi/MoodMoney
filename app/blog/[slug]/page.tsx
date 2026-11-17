@@ -5,9 +5,22 @@ import { getBlogBySlug, getBlogSlugs } from "@/lib/mdx";
 import { Tag } from "@/components/ui/Tag";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import type { ComponentProps } from "react";
 
 interface Props {
   params: Promise<{ slug: string }>;
+}
+
+function BlogLink({ href, ...props }: ComponentProps<"a">) {
+  const external = href?.startsWith("https://") || href?.startsWith("http://");
+  return (
+    <a
+      href={href}
+      {...props}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+    />
+  );
 }
 
 export async function generateStaticParams() {
@@ -73,7 +86,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* MDX content */}
         <article className="prose dark:prose-invert max-w-3xl mx-auto">
-          <MDXRemote source={post.content} />
+          <MDXRemote source={post.content} components={{ a: BlogLink }} />
         </article>
       </div>
     </div>
